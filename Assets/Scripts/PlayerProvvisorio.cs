@@ -1,17 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerProvvisorio : MonoBehaviour {
+public class PlayerProvvisorio : MonoBehaviour
+{
 
-	void Start ()
+    public void NewPosition(Vector2 pos)
     {
-        transform.position = new Vector2(0, 1);
-	
-	}
-	
-
-	void Update ()
-    {
-	
-	}
+        transform.position = pos;
+    }
 }

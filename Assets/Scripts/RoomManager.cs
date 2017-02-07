@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour
 {
@@ -7,19 +9,32 @@ public class RoomManager : MonoBehaviour
     public bool isStartingRoom;
     public bool isActiveRoom;
     public bool isExitRoom;
-    public bool isEnemyInside;
+    public bool isEnemyZone;
+    public int hourCost;
     public Color spriteColor = Color.white;
     public float fadeInTime = 1.5f;
     public float fadeOutTime = 3f;
     public float delayToFadeOut = 5f;
     public float delayToFadeIn = 5f;
 
+    public List<GameObject> nearRoom;
+
+    private PlayerProvvisorio player;
     private SpriteRenderer sprite;
 
+    private int old_hourCost;
 
-    void Start()
+
+    void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        player = FindObjectOfType<PlayerProvvisorio>();
+    }
+    void Start()
+    {
+        old_hourCost = hourCost;
+        EnemySetHourCost();
+        InitNearRoom();
     }
 
 
@@ -34,23 +49,78 @@ public class RoomManager : MonoBehaviour
     void OnMouseDown()
     {
         StartCoroutine("FadeCycle");
+        if (Sync.isReady && !isActiveRoom && IsNearPlayer())
+        {
+            Sync.isReady = false;
+            ChangeRoom();
+            Sync.isReady = true;
+        }
     }
 
-    //void OnCollisionStay(Collision col)
-    //{
-    //    Debug.Log("entra");
-    //    if (col.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("va");
-    //    }
-    //}
-
-    void OnTriggerEnter2D(Collider2D cols)
+    //da chiamare ogni ora
+    /// <summary>
+    /// imposta il costo per entrare in questa Room in base a isEnemyZone
+    /// </summary>
+    private void EnemySetHourCost()
     {
-        Debug.Log("entra");
-        if (cols.gameObject.CompareTag("Player"))
+        if (isEnemyZone)
+        {
+            hourCost = 0;
+        }
+        else
+            hourCost = old_hourCost;
+    }
 
-            Debug.Log("va");
+    /// <summary>
+    /// inizializza la lista nearRoom con i GameOgject che sono adiacenti a questa Room.
+    /// sx, giù, dx, su
+    /// </summary>
+    private void InitNearRoom()
+    {
+        string[] name;
+        for (int i = -1; i < 2; i += 2)
+        {
+            name = gameObject.name.Split(' ');
+            name[1] = Convert.ToString(Convert.ToInt32(name[1]) + i);
+            nearRoom.Add(GameObject.Find(name[0] + ' ' + name[1] + ' ' + name[2]));
+            name = gameObject.name.Split(' ');
+            name[2] = Convert.ToString(Convert.ToInt32(name[2].Substring(0, name[2].IndexOf('('))) + i);
+            nearRoom.Add(GameObject.Find(name[0] + ' ' + name[1] + ' ' + name[2] + "(Clone)"));
+        }
+    }
+
+    /// <summary>
+    /// verifica se il player è in una stanza vicina.
+    /// Utilizza i RoomManager
+    /// </summary>
+    private bool IsNearPlayer()
+    {
+        foreach (var item in nearRoom)
+        {
+            if (item != null && item.GetComponent<RoomManager>().isActiveRoom)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// sposto il player
+    /// </summary>
+    public void ChangeRoom()
+    {
+        foreach (var item in nearRoom)
+        {
+            if (item != null)
+            {
+                item.GetComponent<RoomManager>().isActiveRoom = false;
+            }
+        }
+        isActiveRoom = true;
+        Sync.actualHour += hourCost;
+        player.NewPosition(transform.position);
+        Debug.Log("hour: " + ((Sync.actualHour % Sync.MODH) + 1));
     }
 
     IEnumerator FadeCycle()

@@ -190,7 +190,7 @@ Transform:
   m_Children:
   - {fileID: 1346117420}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
 --- !u!61 &22526132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,12 +219,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &24883654
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +291,7 @@ Transform:
   m_Children:
   - {fileID: 35627035}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!61 &24883657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -318,12 +320,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &25715026
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +392,7 @@ Transform:
   m_Children:
   - {fileID: 153763488}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
 --- !u!61 &25715029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -417,12 +421,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &35627034
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +555,7 @@ Transform:
   m_Children:
   - {fileID: 60450513}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!61 &36709606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -578,12 +584,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &57377455
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +656,7 @@ Transform:
   m_Children:
   - {fileID: 1990894595}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
 --- !u!61 &57377458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -677,12 +685,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &60450512
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +881,7 @@ Transform:
   m_Children:
   - {fileID: 1411280666}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!61 &73545126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -900,12 +910,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &102333098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1230,7 @@ Transform:
   m_Children:
   - {fileID: 1855448510}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
 --- !u!61 &138275886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1247,12 +1259,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1001 &142721325
 Prefab:
   m_ObjectHideFlags: 0
@@ -1290,7 +1304,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012618343258, guid: 5f8d96277ab940d49a42bd90cdd45ca2, type: 2}
       propertyPath: m_RootOrder
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 58000011603363802, guid: 5f8d96277ab940d49a42bd90cdd45ca2, type: 2}
@@ -1422,7 +1436,7 @@ Transform:
   m_Children:
   - {fileID: 128996252}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!61 &196627908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1451,12 +1465,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &233029527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1535,85 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &250426892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 250426894}
+  - 114: {fileID: 250426893}
+  m_Layer: 0
+  m_Name: '[GridManager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &250426893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250426892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757a6f26ca99864479716f47ba90a4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 1000012881681772, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+  listOfRooms:
+  - {fileID: 1654915718}
+  - {fileID: 1841190094}
+  - {fileID: 57377459}
+  - {fileID: 1764603421}
+  - {fileID: 1046327814}
+  - {fileID: 434989994}
+  - {fileID: 1255948677}
+  - {fileID: 25715030}
+  - {fileID: 567457398}
+  - {fileID: 1146689998}
+  - {fileID: 671768011}
+  - {fileID: 1771072632}
+  - {fileID: 2013085581}
+  - {fileID: 631599333}
+  - {fileID: 733289618}
+  - {fileID: 138275887}
+  - {fileID: 1841681809}
+  - {fileID: 22526133}
+  - {fileID: 320258336}
+  - {fileID: 725036223}
+  - {fileID: 1056540648}
+  - {fileID: 2006811094}
+  - {fileID: 196627909}
+  - {fileID: 473481650}
+  - {fileID: 1303313319}
+  - {fileID: 317249549}
+  - {fileID: 660229499}
+  - {fileID: 24883658}
+  - {fileID: 2002482399}
+  - {fileID: 1183280682}
+  - {fileID: 355885019}
+  - {fileID: 36709607}
+  - {fileID: 620054935}
+  - {fileID: 73545127}
+  - {fileID: 1521028571}
+  - {fileID: 2017916207}
+  maxNumber: 3
+--- !u!4 &250426894
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250426892}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &317249545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,7 +1678,7 @@ Transform:
   m_Children:
   - {fileID: 487837334}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!61 &317249548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1612,12 +1707,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &320258332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,7 +1779,7 @@ Transform:
   m_Children:
   - {fileID: 395943114}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!61 &320258335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1711,12 +1808,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &355885015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,7 +1880,7 @@ Transform:
   m_Children:
   - {fileID: 2142995309}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!61 &355885018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1810,12 +1909,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &392926097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1979,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &395943113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,7 +2168,7 @@ Transform:
   m_Children:
   - {fileID: 432155930}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
 --- !u!61 &434989993
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2096,12 +2197,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &439228708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2393,7 @@ Transform:
   m_Children:
   - {fileID: 70346914}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!61 &473481649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2319,12 +2422,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &475990296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,7 +2680,7 @@ Transform:
   m_Children:
   - {fileID: 102333099}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
 --- !u!61 &567457397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2604,12 +2709,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &620054931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,7 +2781,7 @@ Transform:
   m_Children:
   - {fileID: 133570179}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!61 &620054934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2703,12 +2810,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &631599329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,7 +2882,7 @@ Transform:
   m_Children:
   - {fileID: 900365510}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
 --- !u!61 &631599332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2802,12 +2911,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &660229495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,7 +2983,7 @@ Transform:
   m_Children:
   - {fileID: 1426527232}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!61 &660229498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2901,12 +3012,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &671768007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,7 +3084,7 @@ Transform:
   m_Children:
   - {fileID: 1703652935}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
 --- !u!61 &671768010
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3000,12 +3113,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &725036219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,7 +3185,7 @@ Transform:
   m_Children:
   - {fileID: 457358258}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
 --- !u!61 &725036222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3099,12 +3214,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &733289614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,7 +3286,7 @@ Transform:
   m_Children:
   - {fileID: 110212705}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
 --- !u!61 &733289617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3198,12 +3315,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &900365509
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,7 +3511,7 @@ Transform:
   m_Children:
   - {fileID: 502565760}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
 --- !u!61 &1046327813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3421,12 +3540,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1056540644
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,7 +3612,7 @@ Transform:
   m_Children:
   - {fileID: 1708997415}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!61 &1056540647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3520,12 +3641,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1100556300
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,7 +3775,7 @@ Transform:
   m_Children:
   - {fileID: 475990297}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
 --- !u!61 &1146689997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3681,12 +3804,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1168507474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,7 +3938,7 @@ Transform:
   m_Children:
   - {fileID: 971442589}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!61 &1183280681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3842,12 +3967,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1216828678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3974,7 +4101,7 @@ Transform:
   m_Children:
   - {fileID: 1942652119}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
 --- !u!61 &1255948676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4003,12 +4130,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1303313315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4073,7 +4202,7 @@ Transform:
   m_Children:
   - {fileID: 1216828679}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!61 &1303313318
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4102,12 +4231,56 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
+--- !u!1001 &1321561013
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013792672196, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+      propertyPath: m_RootOrder
+      value: 40
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1337738926
 GameObject:
   m_ObjectHideFlags: 0
@@ -4420,7 +4593,7 @@ Transform:
   m_Children:
   - {fileID: 1830554114}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &1521028571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4435,12 +4608,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!61 &1521028572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4643,7 +4818,7 @@ Transform:
   m_Children:
   - {fileID: 1168507475}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 38
 --- !u!61 &1654915717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4672,12 +4847,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1703652934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4928,7 +5105,7 @@ Transform:
   m_Children:
   - {fileID: 1635531385}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
 --- !u!61 &1764603420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4957,12 +5134,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1771072628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5027,7 +5206,7 @@ Transform:
   m_Children:
   - {fileID: 233029528}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
 --- !u!61 &1771072631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5056,12 +5235,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1830554113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,7 +5369,7 @@ Transform:
   m_Children:
   - {fileID: 1100556301}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
 --- !u!61 &1841190093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5217,12 +5398,14 @@ MonoBehaviour:
   isStartingRoom: 1
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1841681805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5287,7 +5470,7 @@ Transform:
   m_Children:
   - {fileID: 1718373604}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
 --- !u!61 &1841681808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5316,12 +5499,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &1855448509
 GameObject:
   m_ObjectHideFlags: 0
@@ -5572,7 +5757,7 @@ Transform:
   m_Children:
   - {fileID: 439228709}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!61 &2002482398
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5601,12 +5786,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &2006811090
 GameObject:
   m_ObjectHideFlags: 0
@@ -5671,7 +5858,7 @@ Transform:
   m_Children:
   - {fileID: 2030842788}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!61 &2006811093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5700,12 +5887,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &2013085577
 GameObject:
   m_ObjectHideFlags: 0
@@ -5770,7 +5959,7 @@ Transform:
   m_Children:
   - {fileID: 1337738927}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
 --- !u!61 &2013085580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5799,12 +5988,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!1 &2017916204
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,7 +6060,7 @@ Transform:
   m_Children:
   - {fileID: 1602698139}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &2017916207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5884,12 +6075,14 @@ MonoBehaviour:
   isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
-  isEnemyInside: 0
+  isEnemyZone: 0
+  hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
   fadeOutTime: 3
   delayToFadeOut: 0
   delayToFadeIn: 0
+  nearRoom: []
 --- !u!61 &2017916208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5941,7 +6134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013810890810, guid: aebe56dce52db6644b0143682bcfe751, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 20000011961626288, guid: aebe56dce52db6644b0143682bcfe751,
         type: 2}

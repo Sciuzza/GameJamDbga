@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012638290738}
   - 212: {fileID: 212000013207533326}
   m_Layer: 0
-  m_Name: room 5 5
+  m_Name: RoomPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStartingRoom: 0
   isActiveRoom: 0
+  isExitRoom: 0
+  isEnemyInside: 0
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  fadeInTime: 1.5
+  fadeOutTime: 3
+  delayToFadeOut: 5
+  delayToFadeIn: 5
 --- !u!212 &212000010587517994
 SpriteRenderer:
   m_ObjectHideFlags: 1
