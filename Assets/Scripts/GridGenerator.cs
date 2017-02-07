@@ -2,20 +2,23 @@
 using System.Collections;
 
 public class GridGenerator : MonoBehaviour {
-
+    
     public GameObject go;
+    public int colonne;
+    public int righe;
+    private SpriteRenderer[] sr;
 
-	void Start () {
-        for (int i = 0; i < 5; i++)
+	void Awake () {
+        
+        for (int i = 0; i < righe; i++)
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < colonne; j++)
             {
+                sr = GetComponents<SpriteRenderer>();
                 Instantiate(go);
-                go.name = "room " + i + " " + j;
-                go.transform.position = new Vector2(i, j);                                          
+                go.transform.position = new Vector2(i, j);
+                go.name = "Room" + i + " " + j;                                                                   
             }
         }
-
-	}
-	
+	}	
 }

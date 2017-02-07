@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012601917888}
   - 212: {fileID: 212000011427897030}
+  - 114: {fileID: 114000013111512272}
   m_Layer: 0
   m_Name: closed_door
   m_TagString: Untagged
@@ -40,6 +41,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000013111512272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010796663372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b52e5479c1aac342ad5f12c34b1f4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousRoom: {fileID: 0}
+  nextRoom: {fileID: 0}
 --- !u!212 &212000011427897030
 SpriteRenderer:
   m_ObjectHideFlags: 1
