@@ -3,19 +3,24 @@ using System.Collections;
 
 public class RoomManager : MonoBehaviour {
 
-    public bool[] isDoorActive;
     public bool isStartingRoom;
     public bool isActiveRoom;
-    private SpriteRenderer sr;
+    private PlayerProvvisorio player;
 
-	// Use this for initialization
+    private SpriteRenderer sr;
+    private Door[] door;
+
+
 	void Start ()
     {
+        player = FindObjectOfType<PlayerProvvisorio>();
         sr = GetComponent<SpriteRenderer>();
-	}
+        door = FindObjectsOfType<Door>();        
+    }
 	
-	// Update is called once per frame
-	void Update () {
+
+	void Update ()
+    {
         if (this.isStartingRoom || this.isActiveRoom)
         {
             this.sr.color = Color.blue;
@@ -27,7 +32,25 @@ public class RoomManager : MonoBehaviour {
 
     }
     void OnMouseDown()
+    {        
+        if (door.Length > 0)
+        {
+            foreach (var item in door)
+            {
+                if (item.nextRoom == this.gameObject)
+                {
+                    player.transform.position = this.transform.position;
+                }
+            }            
+        }
+    }
+    void OnCollisionEnter2D(Collision2D col)
     {
-        this.isActiveRoom = true;
+        
+        if (col.gameObject.tag == "Player")
+        {
+            Debug.Log("va");
+            this.isActiveRoom = true;
+        }
     }
 }
