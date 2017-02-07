@@ -23,7 +23,7 @@ GameObject:
   - 61: {fileID: 61000011370559314}
   - 114: {fileID: 114000014267873670}
   m_Layer: 0
-  m_Name: RoomPrefab (1)
+  m_Name: RoomPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStartingRoom: 0
   isActiveRoom: 0
-  isActivated: 0
 --- !u!212 &212000012037838610
 SpriteRenderer:
   m_ObjectHideFlags: 1
