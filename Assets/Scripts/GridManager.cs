@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GridManager : MonoBehaviour {
 
-    public RoomManager listOfRooms;
+    private RoomManager listOfRooms;
 
 
 	// Use this for initialization
