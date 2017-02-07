@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - Journal Menu
+  - Menu Panel
+  - Button
+  - Gameplay Ui
+  - ProgressBar
+  - GameLoader
   layers:
   - Default
   - TransparentFX
