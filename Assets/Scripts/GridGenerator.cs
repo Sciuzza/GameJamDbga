@@ -17,7 +17,7 @@ public class GridGenerator : MonoBehaviour {
                 sr = GetComponents<SpriteRenderer>();
                 Instantiate(go);
                 go.transform.position = new Vector2(i, j);
-                go.name = "Room" + i + " " + j;                                                                   
+                go.name = "room " + i + " " + j;                                                                   
             }
         }
 	}	

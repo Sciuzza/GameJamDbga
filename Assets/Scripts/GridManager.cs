@@ -3,29 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-//public class Event_lista_nemici : UnityEvent<Enemy[]>
-//{
-
-//}
 
 public class GridManager : MonoBehaviour
 {
-
-    //public Event_lista_nemici listaNemici; 
-
-    public GameObject Enemy;
-    public int X, Y, nOfEnemies;
+    public int X, Y;
     public Sprite[] sEnemies;
     public Sprite[] sFloor;
     public int maxNumber;
 
+    public PlayerProvvisorio player;
     public RoomManager[] listOfRooms;
     public Enemy[] listOfEnemies;
 
-    
     // Use this for initialization
     void Awake()
-    {       
+    {
         Sync.isReady = false;
         InitHourCost();
         Sync.actualHour = 0;
@@ -35,23 +27,14 @@ public class GridManager : MonoBehaviour
     {
         InitRooms();
 
-        //da sistemare? così parto dall'ora (1 + hourCost)
-        listOfRooms[Random.Range(0, listOfRooms.Length)].ChangeRoom();
-
-        foreach (var item in listOfRooms)
-        {
-            if (item.isActiveRoom)
-            {
-
-            }
-        }
-        //può essere anche la stanza iniziale
-        //listOfRooms[Random.Range(0, listOfRooms.Length)].isExitRoom = true;
+        InitPlayer();
 
         InitEnemies();
         Sync.isReady = true;
-        //listaNemici.Invoke(listOfEnemies);
 
+        //può essere anche la stanza iniziale
+        //listOfRooms[Random.Range(0, listOfRooms.Length)].isExitRoom = true;
+        //listaNemici.Invoke(listOfEnemies);
 
     }
 
@@ -73,26 +56,33 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    private void InitPlayer()
+    {
+        int r;
+        do
+        {   //impedisco che sia l'exit
+            r = Random.Range(0, listOfRooms.Length);
+        } while (listOfRooms[r].isExitRoom);
+        listOfRooms[r].isStartingRoom = listOfRooms[r].isActiveRoom = true;
+        player.NewPosition(listOfRooms[r].transform.position);
+    }
+
     private void InitEnemies()
     {
-        GameObject go;
-        listOfEnemies = new Enemy[nOfEnemies];
-        int[] tmpEnemies = new int[nOfEnemies];
-        for (int i = 0; i < nOfEnemies; i++)
+        int[] tmpEnemies = new int[listOfEnemies.Length];
+        for (int i = 0; i < tmpEnemies.Length; i++)
         {
             tmpEnemies[i] = -1;
         }
-        for (int i = 0; i < nOfEnemies; i++)
+        for (int i = 0; i < listOfEnemies.Length; i++)
         {
+            listOfEnemies[i] = GameObject.Find("enemy " + (i + 1)).GetComponent<Enemy>();
             do
             {
                 tmpEnemies[i] = Random.Range(0, X * Y);
             } while (!IsDifferentValue(tmpEnemies, i) || listOfRooms[tmpEnemies[i]].isActiveRoom);
-            go = Instantiate(Enemy);
-            go.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
-            go.transform.position = listOfRooms[tmpEnemies[i]].transform.position - new Vector3(0.22f,0);
-            go.name = "enemy " + (i + 1);
-            listOfEnemies[i] = go.GetComponent<Enemy>();
+            listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
+            listOfEnemies[i].gameObject.transform.position = listOfRooms[tmpEnemies[i]].transform.position;
             listOfEnemies[i].arraySpritePosition = i;
             listOfEnemies[i].room = listOfRooms[tmpEnemies[i]];
         }
@@ -136,7 +126,7 @@ public class GridManager : MonoBehaviour
     private void UpdateEnemies()
     {
         //accedo alle room contenenti un enemy
-        for (int i = 0; i < nOfEnemies; i++)
+        for (int i = 0; i < listOfEnemies.Length; i++)
         {
             listOfEnemies[i].room.isEnemyRoom = listOfEnemies[i].IsActive();
             listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = listOfEnemies[i].IsActive();
