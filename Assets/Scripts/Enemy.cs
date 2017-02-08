@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         //InitHour();
-
     }
 
     //private void InitHour()

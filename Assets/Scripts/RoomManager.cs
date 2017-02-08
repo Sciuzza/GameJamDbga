@@ -33,7 +33,7 @@ public class RoomManager : MonoBehaviour
         InitNearRoom();
         if (this.isExitRoom || this.isStartingRoom)
         {
-            sprite.color = Color.red;
+            StartCoroutine("FadeCycle");
         }
     }
 
@@ -115,13 +115,13 @@ public class RoomManager : MonoBehaviour
 
         refGM.player.NewPosition(transform.position);
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 2];
+        gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 2];
         //gameObject.GetComponentInChildren<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
         Debug.Log("hour: " + ((Sync.getHour()) + 1));
         checkVictory();
     }
 
-    private void checkVictory()
+    public void checkVictory()
     {
         if (isExitRoom && (Sync.actualHour % Sync.MODH == Sync.finalH ||
             Sync.getHour() == (Sync.finalH + 1) % Sync.MODH ||
