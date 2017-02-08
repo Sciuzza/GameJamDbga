@@ -60,18 +60,29 @@ public class GameCont : MonoBehaviour
         switch (this.tutoCont)
         {
             case 2:
-                this.tutoBbRef.tutoTitle.text = "Tutorial 2/4";
-                this.tutoBbRef.tutoText.text = "Stanze Testo";
+                this.tutoBbRef.tutoTitle.text = "Tutorial 2/5";
+                this.tutoBbRef.tutoText.text = "Quanto tempo scorre per passare da una stanza all’altra è indicato da un numero e un colore sul suo pavimento.\n"
+                                               + "Verde +1\n" + "Giallo + 2\n" + "Rosso + 3";
                 break;
             case 3:
-                this.tutoBbRef.tutoTitle.text = "Tutorial 3/4";
-                this.tutoBbRef.tutoText.text = "Nemici Testo";
+                this.tutoBbRef.tutoTitle.text = "Tutorial 3/5";
+                this.tutoBbRef.tutoText.text = "Ognuno di questi tasti rappresenta un’ora passata da quando hai lasciato la tua cella e ti permette di tenere traccia del tempo!\n"
+                                               + "Quando ti muovi nella prima stanza, clicka sul tasto con il numero di ore che sono passate e si aggiornerà da solo mentre ti sposti!";
                 break;
             case 4:
-                this.tutoBbRef.tutoTitle.text = "Tutorial 4/4";
-                this.tutoBbRef.tutoText.text = "Porta Uscita Testo";
+                this.tutoBbRef.tutoTitle.text = "Tutorial 4/5";
+                this.tutoBbRef.tutoText.text = "Ogni stanza è abitata da un nemico!\n" 
+                                               + "I nemici sono gente indaffarata! Compaiono nelle proprie stanze solo in determinati orari, "
+                                               + "indicati nella tabella in [posizione tabella nella UI]: usali per capire che ore sono.\n"
+                                               + "Puoi uccidere un nemico cliccando sul pulsante a forma di spada.\n"
+                                               + "Presta attenzione, perché anche le stanze vuote possono aiutarti a scoprire l’ora!";
                 break;
             case 5:
+                this.tutoBbRef.tutoTitle.text = "Tutorial 5/5";
+                this.tutoBbRef.tutoText.text = "Raggiungi la porta d’uscita e inserisci l’ora esatta per evadere dal dungeon e raggiungere la salvezza!\n"
+                                               + "Hai a disposizione solo 2 tentativi, quindi non sbagliare!";
+                break;
+            case 6:
                 this.SwitchToGameplayScene();
                 break;
         }
