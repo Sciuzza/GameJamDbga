@@ -11,11 +11,13 @@ public class PlayerStats
 
 }
 
-public class event_int_int_int : UnityEvent<int, int, int>{
+public class event_int_int_int : UnityEvent<int, int, int>
+{
 
 }
 
-public class GameCont : MonoBehaviour {
+public class GameCont : MonoBehaviour
+{
 
     public event_int_int_int initia;
 
@@ -53,30 +55,38 @@ public class GameCont : MonoBehaviour {
         switch (this.tutoCont)
         {
             case 2:
-                this.tutoBbRef.tutoTitle.text = "Tutorial 2/3";
+                this.tutoBbRef.tutoTitle.text = "Tutorial 2/4";
                 this.tutoBbRef.tutoText.text = "Stanze Testo";
                 break;
             case 3:
-                this.tutoBbRef.tutoTitle.text = "Tutorial 3/3";
+                this.tutoBbRef.tutoTitle.text = "Tutorial 3/4";
                 this.tutoBbRef.tutoText.text = "Nemici Testo";
                 break;
             case 4:
+                this.tutoBbRef.tutoTitle.text = "Tutorial 4/4";
+                this.tutoBbRef.tutoText.text = "Porta Uscita Testo";
+                break;
+            case 5:
                 this.SwitchToGameplayScene();
                 break;
         }
 
-    } 
+    }
 
     #region Gamplay Methods
     public void GpInitializer()
     {
-        uiRepoRef = GameObject.FindGameObjectWithTag("Gameplay Ui").GetComponent<UiRepo>();
+        this.uiRepoRef = GameObject.FindGameObjectWithTag("Gameplay Ui").GetComponent<UiRepo>();
 
-        uiRepoRef.MainMenu.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToMenu);
-        uiRepoRef.Restart.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToGameplayScene);
-        uiRepoRef.QuitGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ExitGame);
-        uiRepoRef.menuMove.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.MovingMenuPanel);
+        this.uiRepoRef.MainMenu.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToMenu);
+        this.uiRepoRef.Restart.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToGameplayScene);
+        this.uiRepoRef.QuitGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ExitGame);
+        this.uiRepoRef.menuMove.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.MovingMenuPanel);
         this.uiRepoRef.enemyMove.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.MovingEnemyPanel);
+
+        this.uiRepoRef.HourUp.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.SetHourUp);
+        this.uiRepoRef.HourDown.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.SetHourDown);
+        this.uiRepoRef.Conferma.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ConfirmSelection);
     }
 
     private void MovingEnemyPanel()
@@ -176,6 +186,67 @@ public class GameCont : MonoBehaviour {
 
         this.uiRepoRef.EnemyHidden = !this.uiRepoRef.EnemyHidden;
     }
+
+
+    private void SetHourUp()
+    {
+        int currentHour = int.Parse(this.uiRepoRef.HourText.text);
+        currentHour++;
+
+        if (currentHour == 24)
+        {
+            currentHour = 0;
+            this.uiRepoRef.HourText.text = "0" + currentHour;
+        }
+        else if (currentHour < 10)
+            this.uiRepoRef.HourText.text = "0" + currentHour;
+        else
+        {
+            this.uiRepoRef.HourText.text = currentHour.ToString();
+        }
+    }
+
+    private void SetHourDown()
+    {
+        int currentHour = int.Parse(this.uiRepoRef.HourText.text);
+        currentHour--;
+
+        if (currentHour == -1)
+        {
+            currentHour = 23;
+            this.uiRepoRef.HourText.text = currentHour.ToString();
+        }
+        else if (currentHour < 10)
+            this.uiRepoRef.HourText.text = "0" + currentHour;
+        else
+        {
+            this.uiRepoRef.HourText.text = currentHour.ToString();
+        }
+    }
+
+    private void ConfirmSelection()
+    {
+        if (int.Parse(this.uiRepoRef.HourText.text) == Sync.getHour() + 1)
+        {
+            Debug.Log("Hai vinto Stronzo");
+            this.SwitchToMenu();
+        }
+        else
+        {
+           Debug.Log("Hai perso AHAHAHAHAH");
+            this.SwitchToMenu();
+        }
+    }
+
+    public void ActiveExitPanel()
+    {
+        this.uiRepoRef.ExitPanel.SetActive(true);
+
+        this.uiRepoRef.menuMove.GetComponent<ButWithoutText>().ButtonClicked.RemoveAllListeners();
+        this.uiRepoRef.enemyMove.GetComponent<ButWithoutText>().ButtonClicked.RemoveAllListeners();
+        // variabile booleana da settare su false per bloccare input giocatore
+        //GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().ActiveExitPanel();
+    }
     #endregion
 
     #region Do not Destroy Behaviour
@@ -183,7 +254,7 @@ public class GameCont : MonoBehaviour {
     {
         DontDestroyOnLoad(this.gameObject);
 
-    } 
+    }
     #endregion
 
     #region Scene Handler Methods
@@ -205,7 +276,7 @@ public class GameCont : MonoBehaviour {
     private void ExitGame()
     {
         Application.Quit();
-    } 
+    }
     #endregion
 
 }
