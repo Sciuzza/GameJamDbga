@@ -7,7 +7,7 @@ public class RoomManager : MonoBehaviour
 {
 
     public bool isStartingRoom, isExitRoom;
-    public bool isActiveRoom, isEnemyRoom;
+    public bool isActiveRoom, isEnemyRoom, isUncovered;
     public int hourCost;
     public Color spriteColor = Color.white;
     public float fadeInTime = 1.5f;
@@ -18,8 +18,8 @@ public class RoomManager : MonoBehaviour
     public List<GameObject> nearRoom;
 
     private GridManager refGM;
-    private PlayerProvvisorio player;
     private SpriteRenderer sprite;
+
 
     //private int old_hourCost;
 
@@ -28,7 +28,6 @@ public class RoomManager : MonoBehaviour
     {
         refGM = GameObject.Find("[GridManager]").GetComponent<GridManager>();
         sprite = GetComponent<SpriteRenderer>();
-        player = FindObjectOfType<PlayerProvvisorio>();
     }
     void Start()
     {
@@ -54,10 +53,12 @@ public class RoomManager : MonoBehaviour
             Sync.isReady = false;
             ChangeRoom();
             refGM.NextTurn();
-            if (!isStartingRoom && !isExitRoom)
+            if (!isStartingRoom && !isExitRoom && !isUncovered)
                 StartCoroutine("FadeCycle");
             else
                 Sync.isReady = true;
+            isUncovered = true;
+            //Sync.isReady = true;
         }
     }
 
@@ -124,9 +125,12 @@ public class RoomManager : MonoBehaviour
         isActiveRoom = true;
         Sync.actualHour += hourCost;
 
-        player.NewPosition(transform.position);
+        refGM.player.NewPosition(transform.position);
 
+        //gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
+        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
         Debug.Log("hour: " + ((Sync.getHour()) + 1));
+        checkVictory();
     }
 
     private void checkVictory()

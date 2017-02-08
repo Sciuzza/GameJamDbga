@@ -6,24 +6,27 @@ using System.Collections;
 //qui si bilancia il gioco
 public class Enemy : MonoBehaviour
 {
-    public int oraInizio, oraFine, arraySpritePosition;
+    //public int oraInizio, oraFine;
     public RoomManager room;
+    public bool[] hours = new bool[12];
+    public int arraySpritePosition;
 
     void Start()
     {
-        InitHour();
+        //InitHour();
 
     }
 
-    private void InitHour()
-    {
-        oraInizio = Random.Range(0, 12);
-        oraFine = (oraInizio + Sync.NHE) % Sync.MODH;
-    }
+    //private void InitHour()
+    //{
+    //    oraInizio = Random.Range(0, 12);
+    //    oraFine = (oraInizio + Sync.NHE) % Sync.MODH;
+    //}
 
-    //da sistemare
+
     public bool IsActive()
     {
-        return Sync.getHour() >= oraInizio && Sync.getHour() <= oraFine;
+        //return Sync.getHour() >= oraInizio && Sync.getHour() <= oraFine;
+        return hours[Sync.getHour()];
     }
 }

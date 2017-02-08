@@ -52,8 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b52e5479c1aac342ad5f12c34b1f4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousRoom: {fileID: 0}
-  nextRoom: {fileID: 0}
 --- !u!212 &212000011427897030
 SpriteRenderer:
   m_ObjectHideFlags: 1

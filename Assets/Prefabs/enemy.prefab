@@ -52,10 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9318d5b5abcd242bff5c9fd9353823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oraInizio: 0
-  oraFine: 0
-  arraySpritePosition: 15
   room: {fileID: 0}
+  hours: 000000000000000000000000
+  arraySpritePosition: 15
 --- !u!212 &212000013210077710
 SpriteRenderer:
   m_ObjectHideFlags: 1
