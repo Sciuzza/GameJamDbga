@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerStats
 {
@@ -28,6 +29,10 @@ public class GameCont : MonoBehaviour
 
     private UiRepo uiRepoRef;
 
+
+    private List<Button> selectedButNote;
+    private Color notSelected;
+    private Color selected;
 
     public void MenuInitializer()
     {
@@ -87,6 +92,18 @@ public class GameCont : MonoBehaviour
         this.uiRepoRef.HourUp.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.SetHourUp);
         this.uiRepoRef.HourDown.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.SetHourDown);
         this.uiRepoRef.Conferma.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ConfirmSelection);
+
+
+        this.selectedButNote = new List<Button>();
+
+        foreach (var hourBut in this.uiRepoRef.HourNote)
+        {
+            hourBut.gameObject.GetComponent<specialNoteBut>().NoteButClicked.AddListener(this.ButtonNoteHandler);
+        }
+
+        this.notSelected = new Color(Mathf.InverseLerp(0, 255, 129), Mathf.InverseLerp(0, 255, 41), Mathf.InverseLerp(0, 255, 123), Mathf.InverseLerp(0, 255, 100));
+        this.selected = new Color(Mathf.InverseLerp(0, 255, 255), Mathf.InverseLerp(0, 255, 0), Mathf.InverseLerp(0, 255, 0), Mathf.InverseLerp(0, 255, 100));
+
     }
 
     private void MovingEnemyPanel()
@@ -238,6 +255,20 @@ public class GameCont : MonoBehaviour
         }
     }
 
+    private void ButtonNoteHandler(Button butClicked)
+    {
+        if (this.selectedButNote.Contains(butClicked))
+        {
+            this.selectedButNote.Remove(butClicked);
+            butClicked.gameObject.GetComponent<Image>().color = this.notSelected;
+        }
+        else
+        {
+            this.selectedButNote.Add(butClicked);
+            butClicked.gameObject.GetComponent<Image>().color = this.selected;
+        }
+    }
+
     public void ActiveExitPanel()
     {
         this.uiRepoRef.ExitPanel.SetActive(true);
@@ -246,6 +277,50 @@ public class GameCont : MonoBehaviour
         this.uiRepoRef.enemyMove.GetComponent<ButWithoutText>().ButtonClicked.RemoveAllListeners();
         // variabile booleana da settare su false per bloccare input giocatore
         //GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().ActiveExitPanel();
+    }
+
+
+    public void DisablingNote()
+    {
+        foreach (var hourBut in this.uiRepoRef.HourNote)
+        {
+            hourBut.interactable = false;
+        }
+    }
+
+    public void EnablingNote()
+    {
+        foreach (var hourBut in this.uiRepoRef.HourNote)
+        {
+            hourBut.interactable = true;
+        }
+    }
+
+    public void CalculatingNewNotes(int hourCost)
+    {
+        List<int> hoursSelected = new List<int>();
+
+        for (int i = 0; i < this.selectedButNote.Count; i++)
+        {
+            hoursSelected.Add(this.uiRepoRef.HourNote.IndexOf(this.selectedButNote[i]) + hourCost);
+
+            if (hoursSelected[hoursSelected.Count - 1] > 24) hoursSelected[hoursSelected.Count - 1] %= 24;
+        }
+
+        foreach (var previousSelNote in this.selectedButNote)
+        {
+            previousSelNote.gameObject.GetComponent<Image>().color = this.notSelected;
+        }
+
+        this.selectedButNote.Clear();
+        this.selectedButNote.TrimExcess();
+
+        foreach (var noteIndex in hoursSelected)
+        {
+            this.selectedButNote.Add(this.uiRepoRef.HourNote[noteIndex - 1]);
+            this.selectedButNote[this.selectedButNote.Count - 1].gameObject.GetComponent<Image>().color = this.selected;
+        }
+        
     }
     #endregion
 

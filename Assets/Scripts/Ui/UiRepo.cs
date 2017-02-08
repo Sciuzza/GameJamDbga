@@ -18,4 +18,6 @@ public class UiRepo : MonoBehaviour
     public Button HourUp, HourDown, Conferma;
     public GameObject ExitPanel;
     public Text HourText;
+
+    public List<Button> HourNote;
 }

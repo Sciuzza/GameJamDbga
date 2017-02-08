@@ -3,6 +3,7 @@ using System.Collections;
 
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButWithoutText : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IDeselectHandler, IPointerClickHandler, IPointerExitHandler
 {
@@ -28,7 +29,7 @@ public class ButWithoutText : MonoBehaviour, IPointerEnterHandler, ISelectHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
+        if (this.gameObject.GetComponent<Button>().IsInteractable())
         this.ButtonClicked.Invoke();
     }
 
