@@ -1276,7 +1276,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012618343258, guid: 5f8d96277ab940d49a42bd90cdd45ca2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 12.24
       objectReference: {fileID: 0}
     - target: {fileID: 4000012618343258, guid: 5f8d96277ab940d49a42bd90cdd45ca2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5395,7 +5395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd64ee48b6868c478cfa0b654eb4eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStartingRoom: 1
+  isStartingRoom: 0
   isActiveRoom: 0
   isExitRoom: 0
   isEnemyZone: 0

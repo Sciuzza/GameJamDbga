@@ -35,6 +35,10 @@ public class RoomManager : MonoBehaviour
         old_hourCost = hourCost;
         EnemySetHourCost();
         InitNearRoom();
+        if (this.isExitRoom || this.isStartingRoom)
+        {
+            sprite.color = Color.red;
+        }
     }
 
 
@@ -48,11 +52,12 @@ public class RoomManager : MonoBehaviour
     }
     void OnMouseDown()
     {
-        StartCoroutine("FadeCycle");
+        
         if (Sync.isReady && !isActiveRoom && IsNearPlayer())
         {
             Sync.isReady = false;
             ChangeRoom();
+            StartCoroutine("FadeCycle");
             Sync.isReady = true;
         }
     }
@@ -119,11 +124,13 @@ public class RoomManager : MonoBehaviour
         }
         isActiveRoom = true;
         Sync.actualHour += hourCost;
+        
         player.NewPosition(transform.position);
+        
         Debug.Log("hour: " + ((Sync.actualHour % Sync.MODH) + 1));
     }
 
-    IEnumerator FadeCycle()
+      IEnumerator FadeCycle()
     {
         float fade = 0f;
         float startTime;
@@ -138,7 +145,6 @@ public class RoomManager : MonoBehaviour
                 yield return null;
                 //print("Step 1");
             }
-
 
             fade = 1f;
             spriteColor.a = fade;
