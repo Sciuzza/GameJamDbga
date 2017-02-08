@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class GridManager : MonoBehaviour
 {
+    public GameCont gc;
     public int X, Y;
     public Sprite[] sEnemies;
     public Sprite[] sFloor;
@@ -19,6 +20,7 @@ public class GridManager : MonoBehaviour
     {
         Sync.isReady = false;
         Sync.actualHour = 0;
+        gc = FindObjectOfType<GameCont>();
     }
 
     void Start()
