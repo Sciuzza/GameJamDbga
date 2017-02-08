@@ -57,10 +57,6 @@ public class RoomManager : MonoBehaviour
             isUncovered = true;
             //Sync.isReady = true;
         }
-        if (Sync.isReady)
-        {
-            gc.EnablingNote();
-        }
     }
 
     /// <summary>
@@ -159,6 +155,8 @@ public class RoomManager : MonoBehaviour
         yield return new WaitForSeconds(delayToFadeIn);
         sprite.enabled = false;
         Sync.isReady = true;
+        gc.EnablingNote();
+        
     }
 }
 
