@@ -217,9 +217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -318,9 +318,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -582,9 +582,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -683,9 +683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -908,9 +908,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -1257,9 +1257,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -1469,9 +1469,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -1571,9 +1571,12 @@ MonoBehaviour:
   Enemy: {fileID: 1000012881681772, guid: cc5d966c0b1001544b8ba9747b927817, type: 2}
   X: 6
   Y: 6
-  nOfEnemies: 1
-  srEnemies:
+  nOfEnemies: 3
+  sEnemies:
   - {fileID: 21300000, guid: 03163b5b71703564cb349da14bc43339, type: 3}
+  - {fileID: 21300000, guid: 03163b5b71703564cb349da14bc43339, type: 3}
+  - {fileID: 21300000, guid: 03163b5b71703564cb349da14bc43339, type: 3}
+  sFloor: []
   maxNumber: 3
   listOfRooms:
   - {fileID: 1654915718}
@@ -1612,7 +1615,8 @@ MonoBehaviour:
   - {fileID: 73545127}
   - {fileID: 1521028571}
   - {fileID: 2017916207}
-  listOfEnemies: []
+  listOfEnemies:
+  - {fileID: 0}
 --- !u!4 &250426894
 Transform:
   m_ObjectHideFlags: 0
@@ -1717,9 +1721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -1818,9 +1822,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -1919,9 +1923,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -2207,9 +2211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -2432,9 +2436,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -2719,9 +2723,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -2820,9 +2824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -2921,9 +2925,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -3022,9 +3026,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -3123,9 +3127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -3224,9 +3228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -3325,9 +3329,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -3592,9 +3596,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -3693,9 +3697,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -3856,9 +3860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -4019,9 +4023,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -4282,9 +4286,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -4383,9 +4387,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -4718,9 +4722,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -4957,9 +4961,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -5290,9 +5294,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -5391,9 +5395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -5554,9 +5558,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -5655,9 +5659,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -5942,9 +5946,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -6043,9 +6047,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -6144,9 +6148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -6231,9 +6235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingRoom: 0
-  isActiveRoom: 0
   isExitRoom: 0
-  isEnemyZone: 0
+  isActiveRoom: 0
+  isEnemyRoom: 0
   hourCost: 0
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   fadeInTime: 1.5
@@ -6264,7 +6268,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000013810890810, guid: aebe56dce52db6644b0143682bcfe751, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.14
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 4000013810890810, guid: aebe56dce52db6644b0143682bcfe751, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6293,11 +6297,6 @@ Prefab:
     - target: {fileID: 4000013810890810, guid: aebe56dce52db6644b0143682bcfe751, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20000011961626288, guid: aebe56dce52db6644b0143682bcfe751,
-        type: 2}
-      propertyPath: orthographic size
-      value: 3.21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aebe56dce52db6644b0143682bcfe751, type: 2}
