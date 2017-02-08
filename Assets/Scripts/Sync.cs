@@ -10,3 +10,9 @@
         return actualHour % MODH;
     }
 }
+
+public static class Score
+{
+    public static int nTurns;
+    public static int nBattles;
+}

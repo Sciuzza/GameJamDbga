@@ -59,6 +59,7 @@ public class GridManager : MonoBehaviour
         } while (listOfRooms[r].isExitRoom);
         listOfRooms[r].isStartingRoom = listOfRooms[r].isActiveRoom = true;
         player.NewPosition(listOfRooms[r].transform.position);
+        Sync.actualHour += Random.Range(0, Sync.MODH);
     }
 
     private void InitEnemies()
