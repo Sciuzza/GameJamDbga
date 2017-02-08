@@ -314,7 +314,7 @@ public class GameCont : MonoBehaviour
 
         for (int i = 0; i < this.selectedButNote.Count; i++)
         {
-            hoursSelected.Add(this.uiRepoRef.HourNote.IndexOf(this.selectedButNote[i]) + hourCost);
+            hoursSelected.Add(this.uiRepoRef.HourNote.IndexOf(this.selectedButNote[i]) + hourCost + 1);
 
             if (hoursSelected[hoursSelected.Count - 1] > 24) hoursSelected[hoursSelected.Count - 1] %= 24;
         }
