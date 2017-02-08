@@ -127,6 +127,13 @@ public class GridManager : MonoBehaviour
         {
             listOfEnemies[i].room.isEnemyRoom = listOfEnemies[i].IsActive();
             listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = listOfEnemies[i].IsActive();
+
+            if (listOfEnemies[i].isDead)
+            {
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+            }
+
             if (listOfEnemies[i].room.isActiveRoom && listOfEnemies[i].IsActive())
             {
                 StartCoroutine(Battle(listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>(), timeBattle));

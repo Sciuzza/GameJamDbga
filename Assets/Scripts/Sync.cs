@@ -3,7 +3,7 @@
     public static int finalH = UnityEngine.Random.Range(0, 24);
     public const int MODH = 24;
     public const int NHE = 4;
-    public static bool isReady;
+    public static bool isReady, isBattlePhase;
     public static int actualHour;
     public static int getHour()
     {

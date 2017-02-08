@@ -21,8 +21,6 @@ public class RoomManager : MonoBehaviour
     private GridManager refGM;
     private SpriteRenderer sprite;
 
-
-
     void Awake()
     {
         gc = FindObjectOfType<GameCont>();
@@ -42,17 +40,18 @@ public class RoomManager : MonoBehaviour
 
     void OnMouseDown()
     {
-
         if (Sync.isReady && !isActiveRoom && IsNearPlayer())
         {
             Sync.isReady = false;
             gc.DisablingNote();
             ChangeRoom();
-            refGM.NextTurn();
             if (!isStartingRoom && !isExitRoom && !isUncovered)
                 StartCoroutine("FadeCycle");
             else
+            {
+                refGM.NextTurn();
                 Sync.isReady = true;
+            }
             isUncovered = true;
             //Sync.isReady = true;
         }
@@ -151,9 +150,9 @@ public class RoomManager : MonoBehaviour
         sprite.color = spriteColor;
         yield return new WaitForSeconds(delayToFadeIn);
         sprite.enabled = false;
+        refGM.NextTurn();
         Sync.isReady = true;
         gc.CalculatingNewNotes(hourCost);
         gc.EnablingNote();
     }
 }
-
