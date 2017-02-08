@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour
 {
-    public GameCont gc;
+    GameCont gc;
+
     public bool isStartingRoom, isExitRoom;
     public bool isActiveRoom, isEnemyRoom, isUncovered;
     public int hourCost;
@@ -50,16 +51,10 @@ public class RoomManager : MonoBehaviour
             refGM.NextTurn();
             if (!isStartingRoom && !isExitRoom && !isUncovered)
                 StartCoroutine("FadeCycle");
-
-            else            
+            else
                 Sync.isReady = true;
-            
             isUncovered = true;
             //Sync.isReady = true;
-        }
-        if (Sync.isReady)
-        {
-            gc.EnablingNote();
         }
     }
 
@@ -110,13 +105,12 @@ public class RoomManager : MonoBehaviour
             }
         }
         isActiveRoom = true;
-        gc.CalculatingNewNotes(this.hourCost);
+        gc.CalculatingNewNotes(hourCost);
         Sync.actualHour += hourCost;
         if (this.isExitRoom)
         {
-           gc.ActiveExitPanel();
+            gc.ActiveExitPanel();
         }
-        
 
         refGM.player.NewPosition(transform.position);
 
@@ -159,6 +153,7 @@ public class RoomManager : MonoBehaviour
         yield return new WaitForSeconds(delayToFadeIn);
         sprite.enabled = false;
         Sync.isReady = true;
+        gc.EnablingNote();
     }
 }
 
