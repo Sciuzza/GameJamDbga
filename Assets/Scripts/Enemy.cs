@@ -6,8 +6,23 @@ using System.Collections;
 //qui si bilancia il gioco
 public class Enemy : MonoBehaviour
 {
-    //array di 12 bool true se cè il nemico?
-    //int orario di inizio, orario di fine?
-    //array di int con indicati gli orari?
+    public int oraInizio, oraFine, arraySpritePosition;
+    public RoomManager room;
 
+    void Start()
+    {
+        InitHour();
+
+    }
+
+    private void InitHour()
+    {
+        oraInizio = Random.Range(0, 12);
+        oraFine = (oraInizio + Sync.NHE) % Sync.MODH;
+    }
+
+    public bool IsActive()
+    {
+        return Sync.actualHour % Sync.MODH >= oraInizio && Sync.actualHour % Sync.MODH <= oraFine;
+    }
 }
