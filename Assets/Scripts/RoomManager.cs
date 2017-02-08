@@ -44,21 +44,22 @@ public class RoomManager : MonoBehaviour
 
     void Update()
     {
-        if (this.isStartingRoom || this.isActiveRoom)
-        {
-            StartCoroutine("FadeCycle");
-        }
+        //if ((this.isStartingRoom || this.isActiveRoom) && Sync.isReady)
+        //{
+        //    Sync.isReady = false;
+        //    StartCoroutine("FadeCycle");
+        //}
 
     }
     void OnMouseDown()
     {
-        
+
         if (Sync.isReady && !isActiveRoom && IsNearPlayer())
         {
             Sync.isReady = false;
             ChangeRoom();
             StartCoroutine("FadeCycle");
-            Sync.isReady = true;
+            //Sync.isReady = true;
         }
     }
 
@@ -124,50 +125,47 @@ public class RoomManager : MonoBehaviour
         }
         isActiveRoom = true;
         Sync.actualHour += hourCost;
-        
+
         player.NewPosition(transform.position);
-        
+
         Debug.Log("hour: " + ((Sync.actualHour % Sync.MODH) + 1));
     }
 
-      IEnumerator FadeCycle()
+    IEnumerator FadeCycle()
     {
         float fade = 0f;
         float startTime;
-        while (true)
+        startTime = Time.time;
+        while (fade < 1f)
         {
-            startTime = Time.time;
-            while (fade < 1f)
-            {
-                fade = Mathf.Lerp(0f, 1f, (Time.time - startTime) / fadeInTime);
-                spriteColor.a = fade;
-                sprite.color = spriteColor;
-                yield return null;
-                //print("Step 1");
-            }
-
-            fade = 1f;
+            fade = Mathf.Lerp(0f, 1f, (Time.time - startTime) / fadeInTime);
             spriteColor.a = fade;
             sprite.color = spriteColor;
-            yield return new WaitForSeconds(delayToFadeOut);
-            //print("Step 2");
-
-            startTime = Time.time;
-            while (fade > 0f)
-            {
-                fade = Mathf.Lerp(1f, 0f, (Time.time - startTime) / fadeOutTime);
-                spriteColor.a = fade;
-                sprite.color = spriteColor;
-                yield return null;
-                //print("Step 3");
-            }
-            fade = 0f;
-            spriteColor.a = fade;
-            sprite.color = spriteColor;
-            yield return new WaitForSeconds(delayToFadeIn);
-            sprite.enabled = false;
-            StopCoroutine("FadeCycle");
+            yield return null;
+            //print("Step 1");
         }
+
+        fade = 1f;
+        spriteColor.a = fade;
+        sprite.color = spriteColor;
+        yield return new WaitForSeconds(delayToFadeOut);
+        //print("Step 2");
+
+        startTime = Time.time;
+        while (fade > 0f)
+        {
+            fade = Mathf.Lerp(1f, 0f, (Time.time - startTime) / fadeOutTime);
+            spriteColor.a = fade;
+            sprite.color = spriteColor;
+            yield return null;
+            //print("Step 3");
+        }
+        fade = 0f;
+        spriteColor.a = fade;
+        sprite.color = spriteColor;
+        yield return new WaitForSeconds(delayToFadeIn);
+        sprite.enabled = false;
+        Sync.isReady = true;
     }
 }
 

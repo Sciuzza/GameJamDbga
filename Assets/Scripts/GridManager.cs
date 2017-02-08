@@ -6,6 +6,8 @@ public class GridManager : MonoBehaviour
 {
 
     public GameObject Enemy;
+    public int X, Y, nOfEnemies;
+    public Sprite[] srEnemies;
     public RoomManager[] listOfRooms;
     public int maxNumber;
 
@@ -15,13 +17,16 @@ public class GridManager : MonoBehaviour
         Sync.isReady = false;
         InitHourCost();
         Sync.actualHour = 0;
-        InitEnemies();
     }
 
     void Start()
     {
+        InitRooms();
+
         //da sistemare? così parto dall'ora (1 + hourCost)
         listOfRooms[Random.Range(0, listOfRooms.Length)].ChangeRoom();
+
+        InitEnemies();
         Sync.isReady = true;
     }
 
@@ -45,9 +50,53 @@ public class GridManager : MonoBehaviour
 
     private void InitEnemies()
     {
-        for (int i = 0; i < 16; i++)
+        SpriteRenderer sr;
+        int[] tmpEnemies = new int[nOfEnemies];
+        for (int i = 0; i < nOfEnemies; i++)
         {
+            tmpEnemies[i] = -1;
+        }
+        for (int i = 0; i < nOfEnemies; i++)
+        {
+            do
+            {
+                tmpEnemies[i] = Random.Range(0, X * Y);
+            } while (!IsDifferentValue(tmpEnemies, i) || listOfRooms[tmpEnemies[i]].isActiveRoom);
             Instantiate(Enemy);
+            Enemy.transform.position = listOfRooms[tmpEnemies[i]].transform.position;
+            Enemy.name = "enemy " + (i + 1);
+            Enemy.GetComponent<SpriteRenderer>().sprite = srEnemies[i];
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a">array di interi controllato</param>
+    /// <param name="v">indice di a che deve essere diverso</param>
+    /// <returns>true se a[v] != da tutti gli altri a</returns>
+    private bool IsDifferentValue(int[] a, int v)
+    {
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (i != v)
+            {
+                if (a[i] == a[v])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private void InitRooms()
+    {
+        listOfRooms = new RoomManager[X * Y];
+        for (int i = 0; i < X; i++)
+        {
+            for (int j = 0; j < Y; j++)
+            {
+                listOfRooms[i * X + j] = GameObject.Find("room " + i + " " + j + "(Clone)").GetComponent<RoomManager>();
+            }
         }
     }
 }
+
