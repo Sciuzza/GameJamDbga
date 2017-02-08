@@ -269,6 +269,7 @@ public class GameCont : MonoBehaviour
         }
     }
 
+    #region Per Marius da Chiamare
     public void ActiveExitPanel()
     {
         this.uiRepoRef.ExitPanel.SetActive(true);
@@ -320,8 +321,9 @@ public class GameCont : MonoBehaviour
             this.selectedButNote.Add(this.uiRepoRef.HourNote[noteIndex - 1]);
             this.selectedButNote[this.selectedButNote.Count - 1].gameObject.GetComponent<Image>().color = this.selected;
         }
-        
-    }
+
+    } 
+    #endregion
     #endregion
 
     #region Do not Destroy Behaviour
