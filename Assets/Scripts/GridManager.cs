@@ -6,11 +6,11 @@ using UnityEngine.Events;
 
 public class GridManager : MonoBehaviour
 {
-    public GameCont gc;
     public int X, Y;
     public Sprite[] sEnemies;
     public Sprite[] sFloor;
     public int maxNumber;
+    public float timeBattle;
 
     public PlayerProvvisorio player;
     public RoomManager[] listOfRooms;
@@ -20,7 +20,6 @@ public class GridManager : MonoBehaviour
     {
         Sync.isReady = false;
         Sync.actualHour = 0;
-        gc = FindObjectOfType<GameCont>();
     }
 
     void Start()
@@ -118,8 +117,8 @@ public class GridManager : MonoBehaviour
     public void NextTurn()
     {
         UpdateEnemies();
+        Score.nTurns++;
     }
-
 
     private void UpdateEnemies()
     {
@@ -128,7 +127,26 @@ public class GridManager : MonoBehaviour
         {
             listOfEnemies[i].room.isEnemyRoom = listOfEnemies[i].IsActive();
             listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = listOfEnemies[i].IsActive();
-
+            if (listOfEnemies[i].room.isActiveRoom && listOfEnemies[i].IsActive())
+            {
+                StartCoroutine(Battle(listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>(), timeBattle));
+                Score.nBattles++;
+                listOfEnemies[i].isDead = true;
+            }
         }
+    }
+
+    private static IEnumerator Battle(SpriteRenderer renderer, float duration)
+    {
+        float start = Time.time;
+        while (Time.time <= start + duration)
+        {
+            Sync.isReady = false;
+            Color color = renderer.color;
+            color.a = 1f - Mathf.Clamp01((Time.time - start) / duration);
+            renderer.color = color;
+            yield return new WaitForEndOfFrame();
+        }
+        Sync.isReady = true;
     }
 }
