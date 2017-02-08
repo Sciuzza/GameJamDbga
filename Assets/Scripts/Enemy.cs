@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
     //public int oraInizio, oraFine;
     public RoomManager room;
-    public bool[] hours = new bool[Sync.MODH];
+    public bool[] hours;
     public int arraySpritePosition;
     public bool isDead;
     void Start()
