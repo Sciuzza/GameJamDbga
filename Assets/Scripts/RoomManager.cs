@@ -21,30 +21,32 @@ public class RoomManager : MonoBehaviour
     private SpriteRenderer sprite;
 
 
-    //private int old_hourCost;
-
 
     void Awake()
     {
+        nearRoom.Clear();
         refGM = GameObject.Find("[GridManager]").GetComponent<GridManager>();
         sprite = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
-        //old_hourCost = hourCost;
-        //EnemySetHourCost();
         InitNearRoom();
         if (this.isExitRoom || this.isStartingRoom)
         {
-            StartCoroutine("FadeCycle");
+            sprite.color = Color.red;
         }
     }
 
 
     void Update()
     {
-    }
+        //if ((this.isStartingRoom || this.isActiveRoom) && Sync.isReady)
+        //{
+        //    Sync.isReady = false;
+        //    StartCoroutine("FadeCycle");
+        //}
 
+    }
     void OnMouseDown()
     {
 
@@ -62,20 +64,6 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    //da chiamare ogni ora
-    /// <summary>
-    /// imposta il costo per entrare in questa Room in base a isEnemyZone
-    /// </summary>
-    //private void EnemySetHourCost()
-    //{
-    //    if (isEnemyZone)
-    //    {
-    //        hourCost = 0;
-    //    }
-    //    else
-    //        hourCost = old_hourCost;
-    //}
-
     /// <summary>
     /// inizializza la lista nearRoom con i GameOgject che sono adiacenti a questa Room.
     /// sx, giù, dx, su
@@ -89,8 +77,8 @@ public class RoomManager : MonoBehaviour
             name[1] = Convert.ToString(Convert.ToInt32(name[1]) + i);
             nearRoom.Add(GameObject.Find(name[0] + ' ' + name[1] + ' ' + name[2]));
             name = gameObject.name.Split(' ');
-            name[2] = Convert.ToString(Convert.ToInt32(name[2].Substring(0, name[2].IndexOf('('))) + i);
-            nearRoom.Add(GameObject.Find(name[0] + ' ' + name[1] + ' ' + name[2] + "(Clone)"));
+            name[2] = Convert.ToString(Convert.ToInt32(name[2]) + i);
+            nearRoom.Add(GameObject.Find(name[0] + ' ' + name[1] + ' ' + name[2]));
         }
     }
 
@@ -127,17 +115,17 @@ public class RoomManager : MonoBehaviour
 
         refGM.player.NewPosition(transform.position);
 
-        //gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
-        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
+        gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
+        //gameObject.GetComponentInChildren<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
         Debug.Log("hour: " + ((Sync.getHour()) + 1));
         checkVictory();
     }
 
     private void checkVictory()
     {
-        if (isExitRoom && Sync.actualHour % Sync.MODH == Sync.finalH ||
+        if (isExitRoom && (Sync.actualHour % Sync.MODH == Sync.finalH ||
             Sync.getHour() == (Sync.finalH + 1) % Sync.MODH ||
-            Sync.getHour() == (Sync.finalH - 1) % Sync.MODH)
+            Sync.getHour() == (Sync.finalH - 1) % Sync.MODH))
         {
             print("VITTORIA");
         }
@@ -145,7 +133,6 @@ public class RoomManager : MonoBehaviour
 
     IEnumerator FadeCycle()
     {
-        //gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
         float fade = 0f;
         float startTime;
         startTime = Time.time;

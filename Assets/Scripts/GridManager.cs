@@ -15,28 +15,23 @@ public class GridManager : MonoBehaviour
     public RoomManager[] listOfRooms;
     public Enemy[] listOfEnemies;
 
-    // Use this for initialization
     void Awake()
     {
         Sync.isReady = false;
-        InitHourCost();
         Sync.actualHour = 0;
     }
 
     void Start()
     {
         InitRooms();
+        InitHourCost();
 
         InitPlayer();
 
         InitEnemies();
         Sync.isReady = true;
-
-        //può essere anche la stanza iniziale
-        //listOfRooms[Random.Range(0, listOfRooms.Length)].isExitRoom = true;
-        //listaNemici.Invoke(listOfEnemies);
-
     }
+
 
     /// <summary>
     /// inizializza randomicamente i costi (in ore) di ingresso per ogni Room.
@@ -44,14 +39,13 @@ public class GridManager : MonoBehaviour
     /// </summary>
     private void InitHourCost()
     {
-        System.Random r = new System.Random();
         int[] counts = new int[maxNumber];
         //for(int i = 0; i < listOfRooms.Length; i++)
         foreach (var item in listOfRooms)
         {
             do
             {
-                item.hourCost = r.Next(1, maxNumber + 1);
+                item.hourCost = Random.Range(1, maxNumber + 1);
             } while (counts[item.hourCost - 1]++ >= listOfRooms.Length / maxNumber);
         }
     }
@@ -113,10 +107,11 @@ public class GridManager : MonoBehaviour
         {
             for (int j = 0; j < Y; j++)
             {
-                listOfRooms[i * X + j] = GameObject.Find("room " + i + " " + j + "(Clone)").GetComponent<RoomManager>();
+                listOfRooms[i * Y + j] = GameObject.Find("room " + i + " " + j).GetComponent<RoomManager>();
             }
         }
     }
+
     public void NextTurn()
     {
         UpdateEnemies();
