@@ -39,7 +39,7 @@ public class GridManager : MonoBehaviour
 
         InitEnemies();
         Sync.isReady = true;
-        listaNemici.Invoke(listOfEnemies);
+        //listaNemici.Invoke(listOfEnemies);
 
     }
 
@@ -82,6 +82,7 @@ public class GridManager : MonoBehaviour
             listOfEnemies[i] = Enemy.GetComponent<Enemy>();
             listOfEnemies[i].arraySpritePosition = i;
             listOfEnemies[i].room = listOfRooms[tmpEnemies[i]];
+            this.listOfEnemies[i].InitHour();
         }
     }
     /// <summary>

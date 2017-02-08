@@ -26,6 +26,12 @@ public class GameInit : MonoBehaviour
 
             gcTempLink.TutorialInitializer();
         }
+        else if (SceneManager.GetActiveScene().name == "Gameplay")
+        {
+            GameCont gcTempLink = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>();
+
+            gcTempLink.GpInitializer();
+        }
 
     }
 }

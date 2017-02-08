@@ -39,6 +39,7 @@ GameObject:
   - 222: {fileID: 222000011343501318}
   - 114: {fileID: 114000012738746684}
   - 114: {fileID: 114000011668439868}
+  - 114: {fileID: 114000012706371260}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -122,6 +123,7 @@ GameObject:
   - 222: {fileID: 222000011003220448}
   - 114: {fileID: 114000013785128706}
   - 114: {fileID: 114000011871540308}
+  - 114: {fileID: 114000012112938438}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -239,6 +241,7 @@ GameObject:
   - 222: {fileID: 222000013538263964}
   - 114: {fileID: 114000010905771974}
   - 114: {fileID: 114000010014291112}
+  - 114: {fileID: 114000012433547706}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -425,7 +428,7 @@ GameObject:
   - 222: {fileID: 222000011650571356}
   - 114: {fileID: 114000013020149822}
   - 114: {fileID: 114000011034998480}
-  - 114: {fileID: 114000013722994156}
+  - 114: {fileID: 114000010952491924}
   m_Layer: 5
   m_Name: Menu Linguetta
   m_TagString: Untagged
@@ -706,6 +709,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000012957637972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 224000012377471706}
+  m_Layer: 5
+  m_Name: HiddenPosEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000012982027618
 GameObject:
   m_ObjectHideFlags: 1
@@ -801,6 +819,21 @@ GameObject:
   - 114: {fileID: 114000013654508194}
   m_Layer: 5
   m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000013247353332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 224000013006239736}
+  m_Layer: 5
+  m_Name: ShowUpPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -955,6 +988,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000013843125072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 224000010603817628}
+  m_Layer: 5
+  m_Name: HiddenPosMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000014175634910
 GameObject:
   m_ObjectHideFlags: 1
@@ -998,7 +1046,7 @@ GameObject:
   - 222: {fileID: 222000011894275044}
   - 114: {fileID: 114000013197420890}
   - 114: {fileID: 114000012055052922}
-  - 114: {fileID: 114000011413977554}
+  - 114: {fileID: 114000013799217432}
   m_Layer: 5
   m_Name: Nemici Linguetta
   m_TagString: Untagged
@@ -1321,6 +1369,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Restart Game
+--- !u!114 &114000010952491924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011349850190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3287bab62a4a384d87a0349d3811887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114000010969671548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1497,22 +1561,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000011413977554
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014268705698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b11f1104b5377b340840f2f040994af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonClicked:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &114000011557827696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1861,6 +1909,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000012112938438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010459021034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11f1104b5377b340840f2f040994af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114000012137656384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1934,6 +1998,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000012433547706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010750998220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11f1104b5377b340840f2f040994af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114000012456096382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2052,7 +2132,18 @@ MonoBehaviour:
   - {fileID: 0}
   EnemyPanelToMove: {fileID: 1000010956235496}
   MenuPanelToMove: {fileID: 1000013123152702}
-  PausePanelToAct: {fileID: 0}
+  showUpPos: {fileID: 1000013247353332}
+  HiddenPosEnemy: {fileID: 1000012957637972}
+  HiddenPosMenu: {fileID: 1000013843125072}
+  MainMenu: {fileID: 114000011668439868}
+  QuitGame: {fileID: 114000011871540308}
+  Restart: {fileID: 114000010014291112}
+  menuMove: {fileID: 114000011034998480}
+  enemyMove: {fileID: 114000012055052922}
+  MenuMoving: 0
+  MenuHidden: 1
+  EnemyMoving: 0
+  EnemyHidden: 1
 --- !u!114 &114000012620703434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2080,6 +2171,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000012706371260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010139282602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11f1104b5377b340840f2f040994af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114000012730545276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2549,22 +2656,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000013722994156
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011349850190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b11f1104b5377b340840f2f040994af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonClicked:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &114000013738355014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2621,6 +2712,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000013799217432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014268705698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3287bab62a4a384d87a0349d3811887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114000013824601248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3159,6 +3266,24 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224000010603817628
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013843125072}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 224000012229517008}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 359}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000010611510118
 RectTransform:
@@ -3722,6 +3847,9 @@ RectTransform:
   m_Children:
   - {fileID: 224000014123903042}
   - {fileID: 224000013442462824}
+  - {fileID: 224000013006239736}
+  - {fileID: 224000012377471706}
+  - {fileID: 224000010603817628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -3748,6 +3876,24 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224000012377471706
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012957637972}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 224000012229517008}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 846}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012390682228
 RectTransform:
@@ -3863,6 +4009,24 @@ RectTransform:
   m_AnchoredPosition: {x: 225.5, y: -40}
   m_SizeDelta: {x: 201, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224000013006239736
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013247353332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 224000012229517008}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013023128028
 RectTransform:
   m_ObjectHideFlags: 1
@@ -3957,7 +4121,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 362}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013505281126
@@ -4147,6 +4311,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 837}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

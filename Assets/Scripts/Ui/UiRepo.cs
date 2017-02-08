@@ -10,9 +10,10 @@ public class UiRepo : MonoBehaviour
     public List<Sprite> Avatars;
     public List<UiEnemyRepo> EnemyUi;
 
-    public GameObject EnemyPanelToMove, MenuPanelToMove;
+    public GameObject EnemyPanelToMove, MenuPanelToMove, showUpPos, HiddenPosEnemy, HiddenPosMenu;
     public Button MainMenu, QuitGame, Restart, menuMove, enemyMove;
 
+    public bool MenuMoving, MenuHidden, EnemyMoving, EnemyHidden;
 
     // si collega all'evento di Marius per far partire l'initializer dell' enemy panel
     private void Awake()

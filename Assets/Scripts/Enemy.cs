@@ -9,13 +9,9 @@ public class Enemy : MonoBehaviour
     public int oraInizio, oraFine, arraySpritePosition;
     public RoomManager room;
 
-    void Start()
-    {
-        InitHour();
 
-    }
 
-    private void InitHour()
+    public void InitHour()
     {
         oraInizio = Random.Range(0, 12);
         oraFine = (oraInizio + Sync.NHE) % Sync.MODH;
