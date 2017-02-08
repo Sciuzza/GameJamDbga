@@ -18,7 +18,13 @@ public class GameInit : MonoBehaviour
         {
             GameCont gcTempLink = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>();
 
-            gcTempLink.NgpInitializer();
+            gcTempLink.MenuInitializer();
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            GameCont gcTempLink = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>();
+
+            gcTempLink.TutorialInitializer();
         }
 
     }

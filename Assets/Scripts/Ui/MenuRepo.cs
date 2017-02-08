@@ -6,6 +6,6 @@ using UnityEngine.UI;
 public class MenuRepo : MonoBehaviour
 {
 
-    public Button NewGame, Continue, Options, QuitGame;
+    public Button NewGame, QuitGame;
 
 }

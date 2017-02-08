@@ -35,7 +35,7 @@ public class SceneController : MonoBehaviour
         GameController gcTempLink = this.GetComponent<GameController>();
 
         gcTempLink.gpInitializer.AddListener(GamePlayInitialization);
-        //gcTempLink.ngpInitializer.AddListener(NgpInitializer);
+        //gcTempLink.ngpInitializer.AddListener(MenuInitializer);
 
         //this.SavingSceneRef();
 

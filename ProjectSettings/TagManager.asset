@@ -12,6 +12,7 @@ TagManager:
   - ProgressBar
   - GameLoader
   - NemicoUi
+  - TutoPanel
   layers:
   - Default
   - TransparentFX

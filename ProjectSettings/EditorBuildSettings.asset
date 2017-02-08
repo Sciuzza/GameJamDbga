@@ -10,4 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Def/Main Menu.unity
   - enabled: 1
+    path: Assets/Scenes/Def/Tutorial.unity
+  - enabled: 1
     path: Assets/Scenes/Def/Gameplay.unity

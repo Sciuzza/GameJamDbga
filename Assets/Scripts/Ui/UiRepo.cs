@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using UnityEngine.UI;
+
 public class UiRepo : MonoBehaviour
 {
     // Già inizializzati, necessari per l'inizializzazione dell'enemy panel
     public List<Sprite> Avatars;
     public List<UiEnemyRepo> EnemyUi;
 
-    public GameObject EnemyPanelToMove, MenuPanelToMove, PausePanelToAct;
+    public GameObject EnemyPanelToMove, MenuPanelToMove;
+    public Button MainMenu, QuitGame, Restart, menuMove, enemyMove;
 
 
     // si collega all'evento di Marius per far partire l'initializer dell' enemy panel
