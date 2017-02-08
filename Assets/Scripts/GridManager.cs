@@ -45,8 +45,8 @@ public class GridManager : MonoBehaviour
         {
             do
             {
-                item.hourCost = Random.Range(1, maxNumber + 1);
-            } while (counts[item.hourCost - 1]++ >= listOfRooms.Length / maxNumber);
+                item.hourCost = Random.Range(2, maxNumber + 2);
+            } while (counts[item.hourCost - 2]++ >= listOfRooms.Length / maxNumber);
         }
     }
 

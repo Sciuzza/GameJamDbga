@@ -115,7 +115,7 @@ public class RoomManager : MonoBehaviour
 
         refGM.player.NewPosition(transform.position);
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
+        gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 2];
         //gameObject.GetComponentInChildren<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
         Debug.Log("hour: " + ((Sync.getHour()) + 1));
         checkVictory();
