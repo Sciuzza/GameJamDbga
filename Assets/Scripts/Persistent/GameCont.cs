@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 using UnityEngine.SceneManagement;
 
@@ -10,9 +11,12 @@ public class PlayerStats
 
 }
 
+public class event_int_int_int : UnityEvent<int, int, int>{
 
+}
 public class GameCont : MonoBehaviour {
 
+    public event_int_int_int initia;
 
     private void Awake()
     {
