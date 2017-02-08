@@ -21,8 +21,9 @@ public class Enemy : MonoBehaviour
         oraFine = (oraInizio + Sync.NHE) % Sync.MODH;
     }
 
+    //da sistemare
     public bool IsActive()
     {
-        return Sync.actualHour % Sync.MODH >= oraInizio && Sync.actualHour % Sync.MODH <= oraFine;
+        return Sync.getHour() >= oraInizio && Sync.getHour() <= oraFine;
     }
 }

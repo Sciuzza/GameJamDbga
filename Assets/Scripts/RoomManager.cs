@@ -6,10 +6,8 @@ using System.Collections.Generic;
 public class RoomManager : MonoBehaviour
 {
 
-    public bool isStartingRoom;
-    public bool isActiveRoom;
-    public bool isExitRoom;
-    public bool isEnemyZone;
+    public bool isStartingRoom, isExitRoom;
+    public bool isActiveRoom, isEnemyRoom;
     public int hourCost;
     public Color spriteColor = Color.white;
     public float fadeInTime = 1.5f;
@@ -19,38 +17,35 @@ public class RoomManager : MonoBehaviour
 
     public List<GameObject> nearRoom;
 
+    private GridManager refGM;
     private PlayerProvvisorio player;
     private SpriteRenderer sprite;
 
-    private int old_hourCost;
+    //private int old_hourCost;
 
 
     void Awake()
     {
+        refGM = GameObject.Find("[GridManager]").GetComponent<GridManager>();
         sprite = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<PlayerProvvisorio>();
     }
     void Start()
     {
-        old_hourCost = hourCost;
-        EnemySetHourCost();
+        //old_hourCost = hourCost;
+        //EnemySetHourCost();
         InitNearRoom();
         if (this.isExitRoom || this.isStartingRoom)
         {
-            sprite.color = Color.red;
+            StartCoroutine("FadeCycle");
         }
     }
 
 
     void Update()
     {
-        //if ((this.isStartingRoom || this.isActiveRoom) && Sync.isReady)
-        //{
-        //    Sync.isReady = false;
-        //    StartCoroutine("FadeCycle");
-        //}
-
     }
+
     void OnMouseDown()
     {
 
@@ -58,8 +53,11 @@ public class RoomManager : MonoBehaviour
         {
             Sync.isReady = false;
             ChangeRoom();
-            StartCoroutine("FadeCycle");
-            //Sync.isReady = true;
+            refGM.NextTurn();
+            if (!isStartingRoom && !isExitRoom)
+                StartCoroutine("FadeCycle");
+            else
+                Sync.isReady = true;
         }
     }
 
@@ -67,15 +65,15 @@ public class RoomManager : MonoBehaviour
     /// <summary>
     /// imposta il costo per entrare in questa Room in base a isEnemyZone
     /// </summary>
-    private void EnemySetHourCost()
-    {
-        if (isEnemyZone)
-        {
-            hourCost = 0;
-        }
-        else
-            hourCost = old_hourCost;
-    }
+    //private void EnemySetHourCost()
+    //{
+    //    if (isEnemyZone)
+    //    {
+    //        hourCost = 0;
+    //    }
+    //    else
+    //        hourCost = old_hourCost;
+    //}
 
     /// <summary>
     /// inizializza la lista nearRoom con i GameOgject che sono adiacenti a questa Room.
@@ -128,11 +126,22 @@ public class RoomManager : MonoBehaviour
 
         player.NewPosition(transform.position);
 
-        Debug.Log("hour: " + ((Sync.actualHour % Sync.MODH) + 1));
+        Debug.Log("hour: " + ((Sync.getHour()) + 1));
+    }
+
+    private void checkVictory()
+    {
+        if (isExitRoom && Sync.actualHour % Sync.MODH == Sync.finalH ||
+            Sync.getHour() == (Sync.finalH + 1) % Sync.MODH ||
+            Sync.getHour() == (Sync.finalH - 1) % Sync.MODH)
+        {
+            print("VITTORIA");
+        }
     }
 
     IEnumerator FadeCycle()
     {
+        //gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
         float fade = 0f;
         float startTime;
         startTime = Time.time;
