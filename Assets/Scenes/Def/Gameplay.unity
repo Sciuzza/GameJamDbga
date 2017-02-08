@@ -187,10 +187,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011955827668, guid: b22d6b9dedea45f4380f3b4882e7bd0f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 224000010655014820, guid: b22d6b9dedea45f4380f3b4882e7bd0f,
         type: 2}
       propertyPath: m_AnchorMin.y
