@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 {
     //public int oraInizio, oraFine;
     public RoomManager room;
-    public bool[] hours = new bool[12];
+    public bool[] hours = new bool[24];
     public int arraySpritePosition;
 
     void Start()
