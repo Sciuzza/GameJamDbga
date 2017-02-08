@@ -37,6 +37,7 @@ public class GameCont : MonoBehaviour {
         mrTempLink.QuitGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ExitGame);
     }
 
+
     public void TutorialInitializer()
     {
         this.tutoBbRef = GameObject.FindGameObjectWithTag("TutoPanel").GetComponent<TutoRepo>();
@@ -63,9 +64,10 @@ public class GameCont : MonoBehaviour {
                 this.SwitchToGameplayScene();
                 break;
         }
-        
-    }
 
+    } 
+
+    #region Gamplay Methods
     public void GpInitializer()
     {
         uiRepoRef = GameObject.FindGameObjectWithTag("Gameplay Ui").GetComponent<UiRepo>();
@@ -114,7 +116,7 @@ public class GameCont : MonoBehaviour {
 
         var posReached = false;
 
-         var timePassed = 0.0f;
+        var timePassed = 0.0f;
 
         while (!posReached)
         {
@@ -174,13 +176,17 @@ public class GameCont : MonoBehaviour {
 
         this.uiRepoRef.EnemyHidden = !this.uiRepoRef.EnemyHidden;
     }
+    #endregion
 
+    #region Do not Destroy Behaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
 
-    }
+    } 
+    #endregion
 
+    #region Scene Handler Methods
     private void SwitchToGameplayScene()
     {
         SceneManager.LoadScene("Gameplay");
@@ -199,6 +205,7 @@ public class GameCont : MonoBehaviour {
     private void ExitGame()
     {
         Application.Quit();
-    }
+    } 
+    #endregion
 
 }
