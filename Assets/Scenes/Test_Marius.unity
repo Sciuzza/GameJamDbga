@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 000000000100010100000000
+  hours: 000000000100010100000000000000000000000000000000
   arraySpritePosition: 15
 --- !u!212 &24181069
 SpriteRenderer:
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 000000000000000000010101
+  hours: 000000000000000000010101010101010101010101010101
   arraySpritePosition: 15
 --- !u!212 &115523852
 SpriteRenderer:
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 000000000100010100000000
+  hours: 000000000100010100000000000000000000000000000000
   arraySpritePosition: 15
 --- !u!212 &285901568
 SpriteRenderer:
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 000000000100010100000000
+  hours: 000000000100000100000000000000000000000000000000
   arraySpritePosition: 15
 --- !u!212 &298898810
 SpriteRenderer:
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 000000000100010100000000
+  hours: 000000000100010100000000000000000000000000000000
   arraySpritePosition: 15
 --- !u!212 &335604682
 SpriteRenderer:
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 010101000000000000000000
+  hours: 010101000000000000000000000000000000000000000000
   arraySpritePosition: 15
 --- !u!212 &401394858
 SpriteRenderer:
@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 010101000000000000000000
+  hours: 010101000000000000000000000000000000000000000000
   arraySpritePosition: 15
 --- !u!212 &1098469118
 SpriteRenderer:
@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 000000000000000000010101
+  hours: 000000000000000000010101010101010101010101010101
   arraySpritePosition: 15
 --- !u!212 &1122561253
 SpriteRenderer:
@@ -2013,7 +2013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 010101000000000000000000
+  hours: 010101000000000000000000000000000000000000000000
   arraySpritePosition: 15
 --- !u!212 &1379185115
 SpriteRenderer:
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  hours: 000000000000000000010101
+  hours: 000000000000000000010101010101010101010101010101
   arraySpritePosition: 15
 --- !u!212 &1557864923
 SpriteRenderer:
