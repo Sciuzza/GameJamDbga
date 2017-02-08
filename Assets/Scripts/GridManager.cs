@@ -1,19 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
+
+public class Event_lista_nemici : UnityEvent<Enemy[]>
+{
+
+}
 
 public class GridManager : MonoBehaviour
 {
 
+    public Event_lista_nemici listaNemici; 
+
     public GameObject Enemy;
     public int X, Y, nOfEnemies;
     public Sprite[] srEnemies;
-    public RoomManager[] listOfRooms;
     public int maxNumber;
 
+    public RoomManager[] listOfRooms;
+    public Enemy[] listOfEnemies;
+
+    
     // Use this for initialization
     void Awake()
-    {
+    {       
         Sync.isReady = false;
         InitHourCost();
         Sync.actualHour = 0;
@@ -28,6 +39,8 @@ public class GridManager : MonoBehaviour
 
         InitEnemies();
         Sync.isReady = true;
+        listaNemici.Invoke(listOfEnemies);
+
     }
 
     /// <summary>
@@ -50,7 +63,7 @@ public class GridManager : MonoBehaviour
 
     private void InitEnemies()
     {
-        SpriteRenderer sr;
+        listOfEnemies = new Enemy[nOfEnemies];
         int[] tmpEnemies = new int[nOfEnemies];
         for (int i = 0; i < nOfEnemies; i++)
         {
@@ -66,6 +79,9 @@ public class GridManager : MonoBehaviour
             Enemy.transform.position = listOfRooms[tmpEnemies[i]].transform.position;
             Enemy.name = "enemy " + (i + 1);
             Enemy.GetComponent<SpriteRenderer>().sprite = srEnemies[i];
+            listOfEnemies[i] = Enemy.GetComponent<Enemy>();
+            listOfEnemies[i].arraySpritePosition = i;
+            listOfEnemies[i].room = listOfRooms[tmpEnemies[i]];
         }
     }
     /// <summary>
@@ -99,4 +115,3 @@ public class GridManager : MonoBehaviour
         }
     }
 }
-
