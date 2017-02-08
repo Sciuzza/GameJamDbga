@@ -28,6 +28,7 @@ public class RoomManager : MonoBehaviour
         refGM = GameObject.Find("[GridManager]").GetComponent<GridManager>();
         sprite = GetComponent<SpriteRenderer>();
     }
+
     void Start()
     {
         InitNearRoom();
@@ -37,16 +38,6 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-
-    void Update()
-    {
-        //if ((this.isStartingRoom || this.isActiveRoom) && Sync.isReady)
-        //{
-        //    Sync.isReady = false;
-        //    StartCoroutine("FadeCycle");
-        //}
-
-    }
     void OnMouseDown()
     {
 
@@ -116,19 +107,7 @@ public class RoomManager : MonoBehaviour
         refGM.player.NewPosition(transform.position);
 
         gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 2];
-        //gameObject.GetComponentInChildren<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 1];
         Debug.Log("hour: " + ((Sync.getHour()) + 1));
-        checkVictory();
-    }
-
-    public void checkVictory()
-    {
-        if (isExitRoom && (Sync.actualHour % Sync.MODH == Sync.finalH ||
-            Sync.getHour() == (Sync.finalH + 1) % Sync.MODH ||
-            Sync.getHour() == (Sync.finalH - 1) % Sync.MODH))
-        {
-            print("VITTORIA");
-        }
     }
 
     IEnumerator FadeCycle()
