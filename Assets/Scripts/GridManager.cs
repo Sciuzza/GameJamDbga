@@ -118,6 +118,7 @@ public class GridManager : MonoBehaviour
 
     public void NextTurn()
     {
+        EnableEnemies(true);
         UpdateEnemies();
         Score.nTurns++;
     }
@@ -128,11 +129,9 @@ public class GridManager : MonoBehaviour
         for (int i = 0; i < listOfEnemies.Length; i++)
         {
             listOfEnemies[i].room.isEnemyRoom = listOfEnemies[i].IsActive();
-            listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = listOfEnemies[i].IsActive();
 
             if (!listOfEnemies[i].IsActive())
             {
-                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = enemyIcons[i];
             }
             else
@@ -143,7 +142,6 @@ public class GridManager : MonoBehaviour
             if (listOfEnemies[i].isDead)
             {
                 
-                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().flipY = true;
@@ -170,6 +168,17 @@ public class GridManager : MonoBehaviour
             renderer.color = color;
             yield return new WaitForEndOfFrame();
         }
+        renderer.color = Color.grey;
+        renderer.flipY = true;
         Sync.isReady = true;
+    }
+
+    public void EnableEnemies(bool flag)
+    {
+        for (int i = 0; i < listOfEnemies.Length; i++)
+        {
+            if(!listOfEnemies[i].isDead)
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = flag;
+        }
     }
 }
