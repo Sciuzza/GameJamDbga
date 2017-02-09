@@ -24,4 +24,6 @@ public class UiRepo : MonoBehaviour
     public Button BigButton;
 
     public GameObject Victory;
+
+    public Button[] finalVict;
 }

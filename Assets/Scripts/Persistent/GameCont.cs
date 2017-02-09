@@ -58,7 +58,7 @@ public class GameCont : MonoBehaviour
         mrTempLink.NewGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToTutorial);
         mrTempLink.QuitGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ExitGame);
 
-        this.PlaySound(0,0);
+        this.PlaySound(0, 0);
     }
 
 
@@ -88,7 +88,8 @@ public class GameCont : MonoBehaviour
                 this.tutoBbRef.tutoTitle2.text = "Movement";
                 this.tutoBbRef.tutoTitle.text = "Tutorial 3/5";
                 this.tutoBbRef.tutoText.text = "Click one of the rooms adjacent to yours to move there.\n"
-                                               + "Moving from one room to another takes time, remember it when you try to calculate the time.";
+                                               + "Moving from one room to another takes time, remember it when you try to calculate the time.\n"
+                                               + "Moving from room A to room B will take as many hours as the number in room A's floor";
                 break;
             case 4:
                 this.tutoBbRef.tutoTitle2.text = "Rooms";
@@ -120,6 +121,11 @@ public class GameCont : MonoBehaviour
         this.uiRepoRef.MainMenu.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToMenu);
         this.uiRepoRef.Restart.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToGameplayScene);
         this.uiRepoRef.QuitGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ExitGame);
+
+        this.uiRepoRef.finalVict[0].GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToMenu);
+        this.uiRepoRef.finalVict[1].GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToGameplayScene);
+        this.uiRepoRef.finalVict[2].GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ExitGame);
+
         this.uiRepoRef.menuMove.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.MovingMenuPanel);
         this.uiRepoRef.enemyMove.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.MovingEnemyPanel);
 
@@ -287,12 +293,42 @@ public class GameCont : MonoBehaviour
         {
             Debug.Log("Hai vinto Stronzo");
             this.PlaySound(1, 4);
+            this.StartCoroutine(this.FadingIn());
+
         }
         else
         {
-           Debug.Log("Hai perso AHAHAHAHAH");
+            Debug.Log("Hai perso AHAHAHAHAH");
             this.PlaySound(1, 5);
+
+            this.uiRepoRef.Victory.GetComponent<Image>().color = Color.black;
+            this.StartCoroutine(this.FadingIn());
         }
+    }
+
+    private IEnumerator FadingIn()
+    {
+        var imTempLink = this.uiRepoRef.Victory.GetComponent<Image>();
+        var coOriginal = imTempLink.color;
+        coOriginal.a = 0;
+        imTempLink.color = coOriginal;
+        var coTempCopy = imTempLink.color;
+
+        this.uiRepoRef.Victory.SetActive(true);
+
+
+        var alphaDelta = 1f / 2;
+
+        while (imTempLink.color.a < 1)
+        {
+            coTempCopy.a += alphaDelta * Time.deltaTime;
+            imTempLink.color = coTempCopy;
+            yield return null;
+        }
+
+
+        coTempCopy.a = 1;
+        imTempLink.color = coTempCopy;
     }
 
     private void ButtonNoteHandler(Button butClicked)
@@ -374,7 +410,7 @@ public class GameCont : MonoBehaviour
             this.selectedButNote[this.selectedButNote.Count - 1].gameObject.GetComponent<Image>().color = this.selected;
         }
 
-    } 
+    }
     #endregion
     #endregion
 
