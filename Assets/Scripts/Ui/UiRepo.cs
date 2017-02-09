@@ -22,4 +22,6 @@ public class UiRepo : MonoBehaviour
     public List<Button> HourNote;
 
     public Button BigButton;
+
+    public GameObject Victory;
 }

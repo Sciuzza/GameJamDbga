@@ -162,6 +162,7 @@ public class GridManager : MonoBehaviour
     private static IEnumerator Battle(SpriteRenderer renderer, float duration)
     {
         float start = Time.time;
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().PlaySound(1, 1);
         while (Time.time <= start + duration)
         {
             Sync.isReady = false;
@@ -170,6 +171,7 @@ public class GridManager : MonoBehaviour
             renderer.color = color;
             yield return new WaitForEndOfFrame();
         }
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().PlaySound(1, 2);
         Sync.isReady = true;
     }
 }

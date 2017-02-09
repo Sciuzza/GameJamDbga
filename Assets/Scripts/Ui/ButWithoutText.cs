@@ -30,7 +30,10 @@ public class ButWithoutText : MonoBehaviour, IPointerEnterHandler, ISelectHandle
     public void OnPointerClick(PointerEventData eventData)
     {
         if (this.gameObject.GetComponent<Button>().IsInteractable())
-        this.ButtonClicked.Invoke();
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().PlaySound(1, 3);
+            this.ButtonClicked.Invoke();
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

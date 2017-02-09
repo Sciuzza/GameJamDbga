@@ -37,6 +37,7 @@ public class specialNoteBut : MonoBehaviour, IPointerEnterHandler, ISelectHandle
     {
         if (this.gameObject.GetComponent<Button>().IsInteractable())
         {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().PlaySound(1, 3);
             this.NoteButClicked.Invoke(this.gameObject.GetComponent<Button>());
         }
     }

@@ -12,6 +12,13 @@ public class PlayerStats
 
 }
 
+[System.Serializable]
+public class ChannelAudio
+{
+    public AudioClip[] sounds;
+    public AudioSource audioS;
+}
+
 public class event_int_int_int : UnityEvent<int, int, int>
 {
 
@@ -22,7 +29,8 @@ public class GameCont : MonoBehaviour
 
     public event_int_int_int initia;
 
-
+    [SerializeField]
+    public ChannelAudio[] channels;
 
     private int tutoCont = 1;
     private TutoRepo tutoBbRef;
@@ -34,6 +42,13 @@ public class GameCont : MonoBehaviour
     private Color notSelected;
     private Color selected;
 
+    public void PlaySound(int chIndex, int soIndex)
+    {
+        this.channels[chIndex].audioS.clip = this.channels[chIndex].sounds[soIndex];
+        this.channels[chIndex].audioS.Play();
+    }
+
+
     public void MenuInitializer()
     {
         var mrTempLink = GameObject.FindGameObjectWithTag("Menu Panel").GetComponent<MenuRepo>();
@@ -42,6 +57,8 @@ public class GameCont : MonoBehaviour
 
         mrTempLink.NewGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToTutorial);
         mrTempLink.QuitGame.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ExitGame);
+
+        this.PlaySound(0,0);
     }
 
 
@@ -123,6 +140,9 @@ public class GameCont : MonoBehaviour
 
         this.notSelected = new Color(Mathf.InverseLerp(0, 255, 129), Mathf.InverseLerp(0, 255, 41), Mathf.InverseLerp(0, 255, 123), Mathf.InverseLerp(0, 255, 100));
         this.selected = new Color(Mathf.InverseLerp(0, 255, 255), Mathf.InverseLerp(0, 255, 0), Mathf.InverseLerp(0, 255, 0), Mathf.InverseLerp(0, 255, 100));
+
+
+        this.PlaySound(0, 1);
 
     }
 
@@ -266,12 +286,12 @@ public class GameCont : MonoBehaviour
         if (int.Parse(this.uiRepoRef.HourText.text) == Sync.getHour() + 1)
         {
             Debug.Log("Hai vinto Stronzo");
-            this.SwitchToMenu();
+            this.PlaySound(1, 4);
         }
         else
         {
            Debug.Log("Hai perso AHAHAHAHAH");
-            this.SwitchToMenu();
+            this.PlaySound(1, 5);
         }
     }
 

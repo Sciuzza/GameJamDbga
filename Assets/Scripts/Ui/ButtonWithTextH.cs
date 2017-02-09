@@ -31,6 +31,7 @@ public class ButtonWithTextH : MonoBehaviour, IPointerEnterHandler, ISelectHandl
     {
         
         this.ButtonClicked.Invoke();
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().PlaySound(1, 3);
     }
 
     public void OnPointerExit(PointerEventData eventData)

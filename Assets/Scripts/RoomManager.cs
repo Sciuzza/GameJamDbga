@@ -45,6 +45,9 @@ public class RoomManager : MonoBehaviour
             Sync.isReady = false;
             gc.DisablingNote();
             ChangeRoom();
+
+           this.gc.PlaySound(1, 0);
+
             if (!isStartingRoom && !isExitRoom && !isUncovered)
                 StartCoroutine("FadeCycle");
             else if (this.isExitRoom)
