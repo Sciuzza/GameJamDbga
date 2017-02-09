@@ -32,9 +32,11 @@ public class RoomManager : MonoBehaviour
     void Start()
     {
         InitNearRoom();
-        if (this.isExitRoom || this.isStartingRoom)
+        if (isStartingRoom || isExitRoom)
         {
-            StartCoroutine("FadeCycle");
+            hourCost = 0;
+            spriteColor.a = 0f;
+            sprite.color = spriteColor;
         }
     }
 
@@ -105,6 +107,7 @@ public class RoomManager : MonoBehaviour
     /// </summary>
     public void ChangeRoom()
     {
+        refGM.EnableEnemies(false);
         foreach (var item in nearRoom)
         {
             if (item != null)
@@ -122,9 +125,9 @@ public class RoomManager : MonoBehaviour
         }
 
         refGM.player.NewPosition(transform.position);
-
-        gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 2];
-        Debug.Log("hour: " + ((Sync.getHour()) + 1));
+        if(!isStartingRoom && !isExitRoom)
+            gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = refGM.sFloor[hourCost - 2];
+        Debug.Log("hour: " + Sync.getHour());
     }
 
     IEnumerator FadeCycle()
