@@ -20,10 +20,7 @@ public class RoomManager : MonoBehaviour
 
     private GridManager refGM;
     private SpriteRenderer sprite;
-
-
-
-
+    
     void Awake()
     {
         gc = FindObjectOfType<GameCont>();

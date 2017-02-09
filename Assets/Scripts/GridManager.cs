@@ -9,6 +9,7 @@ public class GridManager : MonoBehaviour
     public int X, Y;
     public Sprite[] sEnemies;
     public Sprite[] sFloor;
+    public Sprite[] enemyIcons;
     public int maxNumber;
     public float timeBattle;
 
@@ -128,6 +129,12 @@ public class GridManager : MonoBehaviour
         {
             listOfEnemies[i].room.isEnemyRoom = listOfEnemies[i].IsActive();
             listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = listOfEnemies[i].IsActive();
+
+            if (!listOfEnemies[i].IsActive())
+            {
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = enemyIcons[i];
+            }
 
                  if (listOfEnemies[i].isDead)
                 {
