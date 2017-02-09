@@ -130,29 +130,30 @@ public class GridManager : MonoBehaviour
         {
             listOfEnemies[i].room.isEnemyRoom = listOfEnemies[i].IsActive();
 
-            if (!listOfEnemies[i].IsActive())
-            {
-                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = enemyIcons[i];
-            }
-            else
-            {
-                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
-            }
-
             if (listOfEnemies[i].isDead)
-            {
-                
+            {   //morto
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().flipY = true;
             }
-
-            if (listOfEnemies[i].room.isActiveRoom && listOfEnemies[i].IsActive())
+            else if (listOfEnemies[i].IsActive())
             {
-                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
-                StartCoroutine(Battle(listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>(), timeBattle));
-                Score.nBattles++;
-                listOfEnemies[i].isDead = true;
+                if (listOfEnemies[i].room.isActiveRoom)
+                {
+                    //attivo nella stessa stanza del player
+                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
+                    StartCoroutine(Battle(listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>(), timeBattle));
+                    Score.nBattles++;
+                    listOfEnemies[i].isDead = true;
+                }
+                else
+                {   //attivo in un altra stanza
+                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = enemyIcons[i];
+                }
+            }
+            else
+            {   //non morto e non attivo
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = enemyIcons[i];
             }
         }
     }
