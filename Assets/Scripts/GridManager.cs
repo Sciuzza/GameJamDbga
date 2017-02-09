@@ -135,17 +135,23 @@ public class GridManager : MonoBehaviour
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = enemyIcons[i];
             }
+            else
+            {
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
+            }
 
-                 if (listOfEnemies[i].isDead)
-                {
-                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
-                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().flipY = true;
-                }
-          
+            if (listOfEnemies[i].isDead)
+            {
+                
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().flipY = true;
+            }
 
             if (listOfEnemies[i].room.isActiveRoom && listOfEnemies[i].IsActive())
             {
+                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
                 StartCoroutine(Battle(listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>(), timeBattle));
                 Score.nBattles++;
                 listOfEnemies[i].isDead = true;
