@@ -289,7 +289,7 @@ public class GameCont : MonoBehaviour
 
     private void ConfirmSelection()
     {
-        if (int.Parse(this.uiRepoRef.HourText.text) == Sync.getHour() + 1)
+        if (int.Parse(this.uiRepoRef.HourText.text) == Sync.getHour())
         {
             Debug.Log("Hai vinto Stronzo");
             this.PlaySound(1, 4);
