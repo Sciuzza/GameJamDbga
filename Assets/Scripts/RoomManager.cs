@@ -21,6 +21,9 @@ public class RoomManager : MonoBehaviour
     private GridManager refGM;
     private SpriteRenderer sprite;
 
+
+
+
     void Awake()
     {
         gc = FindObjectOfType<GameCont>();
@@ -47,6 +50,11 @@ public class RoomManager : MonoBehaviour
             ChangeRoom();
             if (!isStartingRoom && !isExitRoom && !isUncovered)
                 StartCoroutine("FadeCycle");
+            else if (this.isExitRoom)
+            {
+                this.refGM.NextTurn();
+                Sync.isReady = false;
+            }
             else
             {
                 refGM.NextTurn();
@@ -104,10 +112,10 @@ public class RoomManager : MonoBehaviour
             }
         }
         isActiveRoom = true;
-        Sync.actualHour += hourCost;
+        Sync.actualHour += Sync.actualCost;
+        Sync.actualCost = this.hourCost;
         if (this.isExitRoom)
         {
-            Sync.isReady = false;
             gc.ActiveExitPanel();
         }
 
@@ -156,4 +164,5 @@ public class RoomManager : MonoBehaviour
         gc.CalculatingNewNotes(hourCost);
         gc.EnablingNote();
     }
+
 }

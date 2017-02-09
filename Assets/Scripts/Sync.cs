@@ -5,6 +5,7 @@
     public const int NHE = 4;
     public static bool isReady, isBattlePhase;
     public static int actualHour;
+    public static int actualCost;
     public static int getHour()
     {
         return actualHour % MODH;
