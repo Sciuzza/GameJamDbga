@@ -302,6 +302,7 @@ public class GameCont : MonoBehaviour
             this.PlaySound(1, 5);
 
             this.uiRepoRef.Victory.GetComponent<Image>().color = Color.black;
+            this.uiRepoRef.gameOver.SetActive(true);
             this.StartCoroutine(this.FadingIn());
         }
     }

@@ -26,4 +26,6 @@ public class UiRepo : MonoBehaviour
     public GameObject Victory;
 
     public Button[] finalVict;
+
+    public GameObject gameOver;
 }
