@@ -20,4 +20,6 @@ public class UiRepo : MonoBehaviour
     public Text HourText;
 
     public List<Button> HourNote;
+
+    public Button BigButton;
 }

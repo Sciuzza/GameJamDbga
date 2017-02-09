@@ -110,6 +110,9 @@ public class GameCont : MonoBehaviour
         this.uiRepoRef.HourDown.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.SetHourDown);
         this.uiRepoRef.Conferma.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.ConfirmSelection);
 
+        this.uiRepoRef.BigButton.gameObject.SetActive(true);
+        this.uiRepoRef.BigButton.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.DeActivateExitPanel);
+        this.uiRepoRef.BigButton.gameObject.SetActive(false);
 
         this.selectedButNote = new List<Button>();
 
@@ -293,10 +296,22 @@ public class GameCont : MonoBehaviour
 
         this.uiRepoRef.menuMove.GetComponent<ButWithoutText>().ButtonClicked.RemoveAllListeners();
         this.uiRepoRef.enemyMove.GetComponent<ButWithoutText>().ButtonClicked.RemoveAllListeners();
+
+        this.uiRepoRef.BigButton.gameObject.SetActive(true);
         // variabile booleana da settare su false per bloccare input giocatore
         //GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().ActiveExitPanel();
     }
 
+    private void DeActivateExitPanel()
+    {
+        this.uiRepoRef.ExitPanel.SetActive(false);
+
+        this.uiRepoRef.menuMove.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.MovingMenuPanel);
+        this.uiRepoRef.enemyMove.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.MovingEnemyPanel);
+
+        this.uiRepoRef.BigButton.gameObject.SetActive(false);
+        Sync.isReady = true;
+    }
 
     public void DisablingNote()
     {
