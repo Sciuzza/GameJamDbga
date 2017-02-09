@@ -107,6 +107,7 @@ public class RoomManager : MonoBehaviour
         Sync.actualHour += hourCost;
         if (this.isExitRoom)
         {
+            Sync.isReady = false;
             gc.ActiveExitPanel();
         }
 

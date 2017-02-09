@@ -50,7 +50,7 @@ public class GameCont : MonoBehaviour
         this.tutoBbRef = GameObject.FindGameObjectWithTag("TutoPanel").GetComponent<TutoRepo>();
 
         this.tutoBbRef.skipTuto.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.SwitchToGameplayScene);
-        this.tutoBbRef.goAhead.GetComponent<ButWithoutText>().ButtonClicked.AddListener(this.TuToHandler);
+        this.tutoBbRef.goAhead.GetComponent<ButtonWithTextH>().ButtonClicked.AddListener(this.TuToHandler);
     }
 
     private void TuToHandler()
@@ -60,27 +60,33 @@ public class GameCont : MonoBehaviour
         switch (this.tutoCont)
         {
             case 2:
+                this.tutoBbRef.tutoTitle2.text = "Enemies";
                 this.tutoBbRef.tutoTitle.text = "Tutorial 2/5";
-                this.tutoBbRef.tutoText.text = "Quanto tempo scorre per passare da una stanza all’altra è indicato da un numero e un colore sul suo pavimento.\n"
-                                               + "Verde +1\n" + "Giallo + 2\n" + "Rosso + 3";
+                this.tutoBbRef.tutoText.text = "An enemy resides in each room!\n"
+                                               + "However, they are busy fellows! Their appearances follow a schedule, shown by the scroll on the top right corner: "
+                                               + "use that information and the Time Piece to pinpoint what time it actually is!\n"
+                                               + "Pay attention, though! Even an empty room can be helpful to understand what time it is!";
                 break;
             case 3:
+                this.tutoBbRef.tutoTitle2.text = "Movement";
                 this.tutoBbRef.tutoTitle.text = "Tutorial 3/5";
-                this.tutoBbRef.tutoText.text = "Ognuno di questi tasti rappresenta un’ora passata da quando hai lasciato la tua cella e ti permette di tenere traccia del tempo!\n"
-                                               + "Quando ti muovi nella prima stanza, clicka sul tasto con il numero di ore che sono passate e si aggiornerà da solo mentre ti sposti!";
+                this.tutoBbRef.tutoText.text = "Click one of the rooms adjacent to yours to move there.\n"
+                                               + "Moving from one room to another takes time, remember it when you try to calculate the time.";
                 break;
             case 4:
+                this.tutoBbRef.tutoTitle2.text = "Rooms";
                 this.tutoBbRef.tutoTitle.text = "Tutorial 4/5";
-                this.tutoBbRef.tutoText.text = "Ogni stanza è abitata da un nemico!\n" 
-                                               + "I nemici sono gente indaffarata! Compaiono nelle proprie stanze solo in determinati orari, "
-                                               + "indicati nella tabella in [posizione tabella nella UI]: usali per capire che ore sono.\n"
-                                               + "Puoi uccidere un nemico cliccando sul pulsante a forma di spada.\n"
-                                               + "Presta attenzione, perché anche le stanze vuote possono aiutarti a scoprire l’ora!";
+                this.tutoBbRef.tutoText.text = "The passing of time when moving from room to room is shown by a number and the color of the room’s floor.\n"
+                                               + "Green: +2\n"
+                                               + "Yellow: +3\n"
+                                               + "Red: +4\n";
                 break;
             case 5:
+                this.tutoBbRef.tutoTitle2.text = "Time Piece";
                 this.tutoBbRef.tutoTitle.text = "Tutorial 5/5";
-                this.tutoBbRef.tutoText.text = "Raggiungi la porta d’uscita e inserisci l’ora esatta per evadere dal dungeon e raggiungere la salvezza!\n"
-                                               + "Hai a disposizione solo 2 tentativi, quindi non sbagliare!";
+                this.tutoBbRef.tutoText.text = "During your escape, click the button labeled with the number corresponding "
+                                               + "to the presumed time you think you are in to keep track of your progress.\n"
+                                               + "Once you have entered a number, it will update with the passing of time!";
                 break;
             case 6:
                 this.SwitchToGameplayScene();

@@ -7,7 +7,7 @@ public class TutoRepo : MonoBehaviour
 {
 
 
-    public Text tutoTitle, tutoText;
+    public Text tutoTitle, tutoText, tutoTitle2;
 
     public Button skipTuto, goAhead;
 
