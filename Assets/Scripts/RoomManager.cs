@@ -57,6 +57,7 @@ public class RoomManager : MonoBehaviour
             }
             else
             {
+                gc.EnablingNote();
                 refGM.NextTurn();
                 Sync.isReady = true;
             }
@@ -112,6 +113,7 @@ public class RoomManager : MonoBehaviour
             }
         }
         isActiveRoom = true;
+        this.gc.CalculatingNewNotes(Sync.actualCost);
         Sync.actualHour += Sync.actualCost;
         Sync.actualCost = this.hourCost;
         if (this.isExitRoom)
@@ -161,7 +163,6 @@ public class RoomManager : MonoBehaviour
         sprite.enabled = false;
         refGM.NextTurn();
         Sync.isReady = true;
-        gc.CalculatingNewNotes(hourCost);
         gc.EnablingNote();
     }
 

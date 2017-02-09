@@ -77,7 +77,7 @@ public class GridManager : MonoBehaviour
             do
             {
                 tmpEnemies[i] = Random.Range(0, X * Y);
-            } while (!IsDifferentValue(tmpEnemies, i) || listOfRooms[tmpEnemies[i]].isActiveRoom);
+            } while (!IsDifferentValue(tmpEnemies, i) || listOfRooms[tmpEnemies[i]].isActiveRoom || listOfRooms[tmpEnemies[i]].isExitRoom);
             listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
             listOfEnemies[i].gameObject.transform.position = listOfRooms[tmpEnemies[i]].transform.position + new Vector3(0.22f, 0);
             listOfEnemies[i].arraySpritePosition = i;
