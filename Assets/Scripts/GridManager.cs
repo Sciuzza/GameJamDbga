@@ -169,12 +169,10 @@ public class GridManager : MonoBehaviour
             renderer.color = color;
             yield return new WaitForEndOfFrame();
         }
-<<<<<<< HEAD
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameCont>().PlaySound(1, 2);
-=======
+
         renderer.color = Color.grey;
         renderer.flipY = true;
->>>>>>> Marius_Hub
         Sync.isReady = true;
     }
 
