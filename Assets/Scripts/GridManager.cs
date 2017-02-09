@@ -79,7 +79,7 @@ public class GridManager : MonoBehaviour
                 tmpEnemies[i] = Random.Range(0, X * Y);
             } while (!IsDifferentValue(tmpEnemies, i) || listOfRooms[tmpEnemies[i]].isActiveRoom);
             listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().sprite = sEnemies[i];
-            listOfEnemies[i].gameObject.transform.position = listOfRooms[tmpEnemies[i]].transform.position - new Vector3(0.22f, 0);
+            listOfEnemies[i].gameObject.transform.position = listOfRooms[tmpEnemies[i]].transform.position + new Vector3(0.22f, 0);
             listOfEnemies[i].arraySpritePosition = i;
             listOfEnemies[i].room = listOfRooms[tmpEnemies[i]];
         }
@@ -129,11 +129,13 @@ public class GridManager : MonoBehaviour
             listOfEnemies[i].room.isEnemyRoom = listOfEnemies[i].IsActive();
             listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = listOfEnemies[i].IsActive();
 
-            if (listOfEnemies[i].isDead)
-            {
-                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
-            }
+                 if (listOfEnemies[i].isDead)
+                {
+                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+                    listOfEnemies[i].gameObject.GetComponent<SpriteRenderer>().flipY = true;
+                }
+          
 
             if (listOfEnemies[i].room.isActiveRoom && listOfEnemies[i].IsActive())
             {
